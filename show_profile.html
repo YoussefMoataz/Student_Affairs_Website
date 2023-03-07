@@ -1,16 +1,36 @@
+<!DOCTYPE html>
 <html>
 
 <head>
     <title>Student</title>
+    <meta name="author" content="Youssef Moataz">
     <style>
-
-        div{
+        body, html{
+            width: 100%;
+            height: 100%;
+            padding:0px;
+            margin:0px;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+        }
+        .formBox{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             margin: auto;
-            text-align: center;
+            width: 300px;
+            height: fit-content;
+            padding: 10px;
         }
         input[type="number"], input[type="text"], input[type="date"], input[type="email"],input[type="tel"] {
             background-color: rgb(205, 212, 218);
-            height: 30px;
+            height: 10px;
             width: 150px;
             border: 10px;
             border-color: aqua;
@@ -24,42 +44,46 @@
 
 <body>
 
-    <div>
-        <form>
+    <!-- <div id="headerDiv"><object type="text/html" data="header.html" style="overflow:auto; width: 100%; height: 100%;"></object></div> -->
+   
+    <div class="container">
+        <div class="formBox">
+            <form>
 
-            <label for="studentID">Student ID</label><br>
-            <input type="number" id="studentID" name="studentID" /><br>
+                <label for="studentID">Student ID</label><br>
+                <input type="number" id="studentID" name="studentID" /><br>
 
-            <label for="studentName">Student Name</label><br>
-            <input type="text" id="studentName" name="studentName" /><br>
+                <label for="studentName">Student Name</label><br>
+                <input type="text" id="studentName" name="studentName" /><br>
 
-            <label for="studentBirthDate">Student Birth Date</label><br>
-            <input type="date" id="studentBirthDate" name="studentBirthDate" /><br>
+                <label for="studentBirthDate">Student Birth Date</label><br>
+                <input type="date" id="studentBirthDate" name="studentBirthDate" /><br>
 
-            <label for="studentGPA">Student GPA</label><br>
-            <input type="number" id="studentGPA" name="studentGPA" step="0.01" /><br>
+                <label for="studentGPA">Student GPA</label><br>
+                <input type="number" id="studentGPA" name="studentGPA" step="0.01" /><br>
 
-            <label for="studentDepartment">Student Department</label><br>
-            <input type="text" id="studentDepartment" name="studentDepartment" /><br>
+                <label for="studentDepartment">Student Department</label><br>
+                <input type="text" id="studentDepartment" name="studentDepartment" /><br>
 
-            <label for="studentEmail">Student Email</label><br>
-            <input type="email" id="studentEmail" name="studentEmail" /><br>
+                <label for="studentEmail">Student Email</label><br>
+                <input type="email" id="studentEmail" name="studentEmail" /><br>
 
-            <label for="studentPhone">Student Phone</label><br>
-            <input type="tel" id="studentPhone" name="studentPhone" /><br>
+                <label for="studentPhone">Student Phone</label><br>
+                <input type="tel" id="studentPhone" name="studentPhone" /><br>
 
-            <input type="radio" id="studentGenderMale" name="studentGender" />
-            <label for="studentGenderMale">Male</label>
-            <input type="radio" id="studentGenderFemale" name="studentGender" />
-            <label for="studentGenderFemale">Female</label><br>
+                <input type="radio" id="studentGenderMale" name="studentGender" />
+                <label for="studentGenderMale">Male</label>
+                <input type="radio" id="studentGenderFemale" name="studentGender" />
+                <label for="studentGenderFemale">Female</label><br>
 
-            <input type="checkbox" id="studentStatus" name="studentStatus" />
-            <label for="studentStatus">Active</label><br><br>
+                <input type="checkbox" id="studentStatus" name="studentStatus" />
+                <label for="studentStatus">Active</label><br><br>
 
-            <button type="button">Edit</button>
-            <button type="submit">Save</button>
+                <button type="button">Edit</button>
+                <button type="submit">Save</button>
 
-        </form>
+            </form>
+        </div>
     </div>
 
 </body>
