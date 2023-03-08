@@ -1,48 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
-    <style>
-        ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: rgb(44, 36, 36);
-        position: fixed;
-        top: 0;
-        width: 100%;
-        }
-
-        li {
-        float: left;
-        }
-
-        li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        }
-
-        li a:hover:not(.active) {
-        background-color: #111;
-        }
-
-        
-</style>
-    
+    <title>Home</title>
+    <script src="scripts/jquery-3.6.3.min.js"></script>
+    <script src="scripts/script.js"></script>
+    <script>
+        loadHeader("#headerDiv");
+    </script>
 </head>
 <body>
-    <ul>
-        <li><a href = "index.html">Home</a></li> 
-        <li><a href ="show_profile.html" >Add Student</a></li> 
-        <li><a href="all_students.html">View All Students</a></li> 
-        <li> <a href="show_profile.html">Edit</a></li>
-        <li><a href="department_assignment.html">Assign Department</a></li>
-        <li><a href="login.html">login</a></li> 
-    </ul>
+
+    <div id="headerDiv"></div><br>
     <div style="padding:20px;margin-top:30px;background-color:#2f769f;height:1500px;">
         <h1>Welcome User </h1>
 
