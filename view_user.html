@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>View User</title>
+        <meta name = "author" content = "Sara Walid">
+    </head>
+
+    <body>
+        <div>
+        <label for="id">Select ID : </label>
+        <select name="id" id="userId">
+        <option value="user1">100</option>
+        <option value="user2">101</option>
+        <option value="user3">102</option>
+        <option value="user4">103</option>
+        <option value="user5">104</option>
+        <option value="user6">105</option>
+        <option value="user7">106</option>
+        <option value="user8">107</option>
+        <option value="user9">108</option>
+        <option value="user10">109</option>
+        </select>
+        <br> <br> <br> <br>
+        </div>
+
+        <div>
+            
+            
+            <label for="name">Name: </label>
+            <input type="text" id="userName" name="name" readonly>
+            <button type="button">Edit</button>
+            <br> <br> <br> <br>
+        </div>
+        
+
+        <div>
+            <label for="password">Password : </label>  
+            <input type="password" value="user password" id="myInput" readonly>
+            <button type="button">Edit</button>
+            <br><br>
+            <input type="checkbox" onclick="myFunction()">Show Password
+
+
+
+            <script>
+            function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+            }
+            </script>
+        </div>
+
+        <br> <br> <br> <br>
+
+        <button type="button" onclick="alert('User Was Deleted')">Delete</button>
+        <button type="submit" onclick="alert('Changes Saved')">Save</button>
+
+        
+    </body>
+</html>
