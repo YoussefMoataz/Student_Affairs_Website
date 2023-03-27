@@ -1,0 +1,15 @@
+:root{
+    --main-background-color: #EEF0EB;
+
+    --navigation-background-color: #153243;
+    --navigation-text-color: #ffffff;
+
+    --input-background-color: #F4F9E9;
+    --input-text-color: #153243;
+    --input-border-color: #153243;
+
+    --primary-button-background-color: #632708;
+    --primary-button-text-color: #FFFFFF;
+    --secondary-button-background-color: #31708E;
+    --secondary-button-text-color: #FFFFFF;
+}
