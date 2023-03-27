@@ -1,4 +1,5 @@
 :root{
+    /* colors */
     --main-background-color: #EEF0EB;
 
     --navigation-background-color: #153243;
@@ -12,4 +13,7 @@
     --primary-button-text-color: #FFFFFF;
     --secondary-button-background-color: #31708E;
     --secondary-button-text-color: #FFFFFF;
+
+    /* font sizes */
+    --default-font-size: 16px;
 }
