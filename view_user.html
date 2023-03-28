@@ -3,62 +3,125 @@
     <head>
         <title>View User</title>
         <meta name = "author" content = "Sara Walid">
+        <script src="scripts/jquery-3.6.3.min.js"></script>
+        <script src="scripts/script.js"></script>
+    <script>
+        loadHeader("#headerDiv");
+    </script>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+         body, html{
+            width: 100%;
+            height: 100%;
+            padding:0px;
+            margin:0px;
+            background-color: var(--main-background-color);
+        }
+        
+        .content{
+        
+            border-radius: 20px;
+            padding: 10px;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.18), 0 6px 18px 2px rgba(0, 0, 0, 0.15);
+            grid-template-columns: 260px 260px;
+            align-items: center;
+            margin: auto;
+            width: 520px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction:column;
+            height: 50%;
+            background-color: rgb(228, 228, 228);
+        }
+        label{
+            color: var(--input-text-color);
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+        button{
+            width: 60px;
+            height: 30px;
+            padding: 8px;
+            border: 0px ;
+            border-radius: 6px;
+            text-align: center;
+            margin: 6px;
+            font-size:small;
+        }
+        #editButton{
+            background-color: var(--special-button-background-color);
+            color: var(--primary-button-text-color);
+           
+            width: 40px;
+            height: 30px;
+        }
+        #saveButton{
+            background-color: var(--primary-button-background-color);
+            color: var(--primary-button-text-color);
+
+        }
+        #deleteButton{
+            background-color: var(--secondary-button-background-color);
+            color: var(--secondary-button-text-color);
+        }
+    </style>
     </head>
 
     <body>
-        <div>
-        <label for="id">Select ID : </label>
-        <select name="id" id="userId">
-        <option value="user1">100</option>
-        <option value="user2">101</option>
-        <option value="user3">102</option>
-        <option value="user4">103</option>
-        <option value="user5">104</option>
-        <option value="user6">105</option>
-        <option value="user7">106</option>
-        <option value="user8">107</option>
-        <option value="user9">108</option>
-        <option value="user10">109</option>
-        </select>
-        <br> <br> <br> <br>
+        <div class="content">
+            <div class="selection">
+                <label for="id">Select ID : </label>
+                <select name="id" id="userId">
+                <option value="user1">100</option>
+                <option value="user2">101</option>
+                <option value="user3">102</option>
+                <option value="user4">103</option>
+                <option value="user5">104</option>
+                <option value="user6">105</option>
+                <option value="user7">106</option>
+                <option value="user8">107</option>
+                <option value="user9">108</option>
+                <option value="user10">109</option>
+                </select>
+                <br>
+                </div>
+
+                <div class="data">
+                    <label for="name">Name : </label>
+                    <input type="text" id="userName" name="name" readonly>
+                    <button type="button" id="editButton">Edit</button>
+                    <br>
+                    <label for="password">Password : </label>  
+                    <input type="password" value="user password" id="userPassword" readonly>
+                    <button type="button" id="editButton">Edit</button>
+                    <br><br>
+                    <input type="checkbox" onclick="myFunction()">Show Password
+                    
+                </div>
+                <br> 
+                <script>
+                    function myFunction() {
+                    var x = document.getElementById("userPassword");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                    }
+                </script>
+
+        <button type="button" id="deleteButton" onclick="alert('User Was Deleted')">Delete</button>
+        <button type="submit" id="saveButton" onclick="alert('Changes Saved')">Save</button>
+
+
         </div>
 
-        <div>
-            
-            
-            <label for="name">Name: </label>
-            <input type="text" id="userName" name="name" readonly>
-            <button type="button">Edit</button>
-            <br> <br> <br> <br>
-        </div>
         
 
-        <div>
-            <label for="password">Password : </label>  
-            <input type="password" value="user password" id="myInput" readonly>
-            <button type="button">Edit</button>
-            <br><br>
-            <input type="checkbox" onclick="myFunction()">Show Password
+        
+        
 
-
-
-            <script>
-            function myFunction() {
-            var x = document.getElementById("myInput");
-            if (x.type === "password") {
-                x.type = "text";
-            } else {
-                x.type = "password";
-            }
-            }
-            </script>
-        </div>
-
-        <br> <br> <br> <br>
-
-        <button type="button" onclick="alert('User Was Deleted')">Delete</button>
-        <button type="submit" onclick="alert('Changes Saved')">Save</button>
-
+            
         
     </body>
 </html>
