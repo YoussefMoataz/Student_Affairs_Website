@@ -13,7 +13,10 @@
     --primary-button-text-color: #FFFFFF;
     --secondary-button-background-color: #31708E;
     --secondary-button-text-color: #FFFFFF;
+    
+    --special-button-background-color : #82b0c5dc;
 
+    
     /* font sizes */
     --default-font-size: 16px;
 }

@@ -19,6 +19,9 @@
             margin:0px;
             background-color: var(--main-background-color);
         }
+        html{
+            background-color: white;
+        }
         .container{
             display: flex;
             justify-content: center;
@@ -27,23 +30,25 @@
             height: 100%;
         }
         .formBox{
-            background-color: rgb(228, 228, 228);
+            background-color: rgb(210, 223, 231, 0.8);
             border-radius: 20px;
             padding: 10px;
             box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.18), 0 6px 18px 2px rgba(0, 0, 0, 0.15);;
         }
         form{
             display: grid;
-            grid-template-columns: 260px 260px;
+            grid-template-columns: 300px 300px;
+            row-gap: 14px;
+            column-gap: 20px;
             align-items: center;
             margin: auto;
-            width: 520px;
+            width: 600px;
             padding: 10px;
         }
         input[type="number"], input[type="text"], input[type="date"], input[type="email"],input[type="tel"] {
             background-color: var(--input-background-color);
             height: 10px;
-            width: 180px;
+            width: 240px;
             border: 2px solid var(--input-border-color);
             border-radius: 14px;
             padding: 10px;
@@ -53,6 +58,7 @@
         label{
             color: var(--input-text-color);
             font-size: var(--default-font-size);
+            font-family: Geneva, Verdana, sans-serif;
         }
         button{
             width: 70px;
