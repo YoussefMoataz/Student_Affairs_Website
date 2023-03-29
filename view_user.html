@@ -77,7 +77,7 @@
             cursor:pointer;
         }
         
-        #editButton{
+        #editButton1,#editButton2{
             background-color: var(--special-button-background-color);
             color: var(--primary-button-text-color);
             width: 40px;
@@ -96,7 +96,7 @@
             color: var(--secondary-button-text-color);
         }
 
-        #editButton:active{
+        #editButton1:active,#editButton2:active{
             background-color: #ffbf0020;
             transition: 50ms;
         }
@@ -138,11 +138,11 @@
                 <div class="data">
                     <label for="name">Name  </label>
                     <input type="text" id="userName" name="name" readonly>
-                    <button type="button" id="editButton">Edit</button>
+                    <button type="button" id="editButton1">Edit</button>
                     <br>
                     <label for="password">Password  </label>  
                     <input type="password" value="user password" id="userPassword" readonly>
-                    <button type="button" id="editButton">Edit</button>
+                    <button type="button" id="editButton2">Edit</button>
                     <br><br>
                     <input id="showPass"type="checkbox"  onclick="myFunction()">Show Password
                     <script>
@@ -154,6 +154,14 @@
                             x.type = "password";
                         }
                         }
+
+                        document.getElementById('editButton1').onclick = function() {
+                        document.getElementById('userName').readOnly = false;
+                        };
+
+                        document.getElementById('editButton2').onclick = function() {
+                        document.getElementById('userPassword').readOnly = false;
+                        };
                     </script>
                 </div>
                 
