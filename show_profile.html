@@ -85,9 +85,11 @@
                     <label for="studentStatus">Active</label>
                 </div>
 
+                <div></div>
+
                 <div>
-                    <button type="button" id="editButton">Edit</button>
-                    <button type="button" id="saveButton">Save</button>
+                    <button type="button" id="deleteButton">Delete</button>
+                    <button type="button" id="saveButton">Add</button>
                 </div>
 
             </form>
@@ -95,8 +97,15 @@
     </div>
 
 </body>
+
 <script>
+
+    getProfileDataToEdit();
+
     document.getElementById("saveButton").addEventListener("click", formSubmitted);
+
+    document.getElementById("deleteButton").addEventListener("click", deleteProfile);
+
 </script>
 
 </html>

@@ -7,19 +7,23 @@
         -Edit profile page
 */
 
+let storage = window.localStorage;
+
+let indexOfItemToEdit = -1;
+
 function formSubmitted(){
 
-    var id = document.getElementById("studentID").value;
-    var name = document.getElementById("studentName").value;
-    var dateOfBirth = document.getElementById("studentBirthDate").value;
-    var gpa = document.getElementById("studentGPA").value;
-    var level = document.getElementById("studentLevel").value;
-    var department = document.getElementById("studentDepartment").value;
-    var email = document.getElementById("studentEmail").value;
-    var phone = document.getElementById("studentPhone").value;
+    let id = document.getElementById("studentID").value;
+    let name = document.getElementById("studentName").value;
+    let dateOfBirth = document.getElementById("studentBirthDate").value;
+    let gpa = document.getElementById("studentGPA").value;
+    let level = document.getElementById("studentLevel").value;
+    let department = document.getElementById("studentDepartment").value;
+    let email = document.getElementById("studentEmail").value;
+    let phone = document.getElementById("studentPhone").value;
 
-    var gender = "";
-    var radios = document.getElementsByName("studentGender");
+    let gender = "";
+    let radios = document.getElementsByName("studentGender");
     for (var i = 0; i < 2; i++) {
         if (radios[i].checked) {
             gender = radios[i].value;
@@ -27,28 +31,53 @@ function formSubmitted(){
         }
     }
 
-    var status = document.getElementById("studentStatus").checked;
+    let status = document.getElementById("studentStatus").checked;
     
     let student = new Student(id, name, dateOfBirth, gpa, level, department, email, phone, gender, status);
 
 
-    var students = [];
+    let students = [];
 
-    let storage = window.localStorage;
+    if(indexOfItemToEdit == -1){
+        // not updating, just adding a profile
 
-    if(storage.getItem("StudentsData") == null){
 
-        students[0] = JSON.stringify(student);
+        if(storage.getItem("StudentsData") == null){
 
-        storage.setItem("StudentsData", JSON.stringify(students));
+            students[0] = JSON.stringify(student);
+
+            storage.setItem("StudentsData", JSON.stringify(students));
+
+        }else{
+
+            students = JSON.parse(storage.getItem("StudentsData"));
+
+            students[students.length] = JSON.stringify(student);
+
+            storage.setItem("StudentsData", JSON.stringify(students));
+
+        }
 
     }else{
+        // updating a profile
 
-        students = JSON.parse(storage.getItem("StudentsData"));
+        if(storage.getItem("StudentsData") == null){
 
-        students[students.length] = JSON.stringify(student);
+            students[0] = JSON.stringify(student);
 
-        storage.setItem("StudentsData", JSON.stringify(students));
+            storage.setItem("StudentsData", JSON.stringify(students));
+
+        }else{
+
+            students = JSON.parse(storage.getItem("StudentsData"));
+
+            students[indexOfItemToEdit] = JSON.stringify(student);
+
+            storage.setItem("StudentsData", JSON.stringify(students));
+
+        }
+
+        storage.removeItem("StudentIndex");
 
     }
 
@@ -57,5 +86,57 @@ function formSubmitted(){
     // alert(JSON.stringify(student));
 
     // alert(id + name + dateOfBirth + gpa + level + department + email + phone + gender + status );
+
+}
+
+function getProfileDataToEdit(){
+
+
+    if(storage.getItem("StudentIndex") != null && storage.getItem("StudentIndex") != -1){
+
+        indexOfItemToEdit = storage.getItem("StudentIndex");
+
+        let students = JSON.parse(storage.getItem("StudentsData"));
+
+        let student = JSON.parse(students[indexOfItemToEdit]);
+
+        // alert(student.name);
+
+        document.getElementById("deleteButton").style.display = "initial";
+        document.getElementById("saveButton").innerHTML = "Save";
+
+        document.getElementById("studentID").value = student.id;
+        document.getElementById("studentName").value = student.name;
+        document.getElementById("studentBirthDate").value = student.dateOfBirth;
+        document.getElementById("studentGPA").value = student.gpa;
+        document.getElementById("studentLevel").value = student.level;
+        document.getElementById("studentDepartment").value = student.department;
+        document.getElementById("studentEmail").value = student.email;
+        document.getElementById("studentPhone").value = student.phone;
+        // to get the selected radio button
+        document.getElementsByName("studentGender")[1 - student.gender].checked = true;
+        document.getElementById("studentStatus").checked = student.status;
+
+    }
+
+}
+
+function deleteProfile(){
+
+    if(storage.getItem("StudentsData") == null){
+
+        alert("No Students to delete !");
+
+    }else{
+
+        let students = JSON.parse(storage.getItem("StudentsData"));
+
+        students.splice(indexOfItemToEdit, 1);
+
+        storage.setItem("StudentsData", JSON.stringify(students));
+
+        storage.removeItem("StudentIndex");
+
+    }
 
 }
