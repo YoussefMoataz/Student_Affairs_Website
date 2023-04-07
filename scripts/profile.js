@@ -31,6 +31,29 @@ function formSubmitted(){
     
     let student = new Student(id, name, dateOfBirth, gpa, level, department, email, phone, gender, status);
 
+
+    var students = [];
+
+    let storage = window.localStorage;
+
+    if(storage.getItem("StudentsData") == null){
+
+        students[0] = JSON.stringify(student);
+
+        storage.setItem("StudentsData", JSON.stringify(students));
+
+    }else{
+
+        students = JSON.parse(storage.getItem("StudentsData"));
+
+        students[students.length] = JSON.stringify(student);
+
+        storage.setItem("StudentsData", JSON.stringify(students));
+
+    }
+
+    alert("Saved");
+    
     // alert(JSON.stringify(student));
 
     // alert(id + name + dateOfBirth + gpa + level + department + email + phone + gender + status );
