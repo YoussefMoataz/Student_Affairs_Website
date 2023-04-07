@@ -24,6 +24,7 @@ function formSubmitted(){
 
     let gender = "";
     let radios = document.getElementsByName("studentGender");
+    // get the selected gender
     for (var i = 0; i < 2; i++) {
         if (radios[i].checked) {
             gender = radios[i].value;
@@ -38,48 +39,37 @@ function formSubmitted(){
 
     let students = [];
 
-    if(indexOfItemToEdit == -1){
-        // not updating, just adding a profile
+    
+    if(storage.getItem("StudentsData") == null){
+        // no students saved
 
+        students[0] = JSON.stringify(student);
 
-        if(storage.getItem("StudentsData") == null){
-
-            students[0] = JSON.stringify(student);
-
-            storage.setItem("StudentsData", JSON.stringify(students));
-
-        }else{
-
-            students = JSON.parse(storage.getItem("StudentsData"));
-
-            students[students.length] = JSON.stringify(student);
-
-            storage.setItem("StudentsData", JSON.stringify(students));
-
-        }
+        storage.setItem("StudentsData", JSON.stringify(students));
 
     }else{
-        // updating a profile
 
-        if(storage.getItem("StudentsData") == null){
+        students = JSON.parse(storage.getItem("StudentsData"));
 
-            students[0] = JSON.stringify(student);
+        if(indexOfItemToEdit == -1){
 
-            storage.setItem("StudentsData", JSON.stringify(students));
+            // not updating, just adding a profile
+            students[students.length] = JSON.stringify(student);
 
         }else{
 
-            students = JSON.parse(storage.getItem("StudentsData"));
-
+            // updating profile
             students[indexOfItemToEdit] = JSON.stringify(student);
-
-            storage.setItem("StudentsData", JSON.stringify(students));
 
         }
 
-        storage.removeItem("StudentIndex");
+        storage.setItem("StudentsData", JSON.stringify(students));
 
     }
+
+    // done updating or adding, remove the current index
+    storage.removeItem("StudentIndex");
+
 
     alert("Saved");
     
@@ -129,13 +119,22 @@ function deleteProfile(){
 
     }else{
 
-        let students = JSON.parse(storage.getItem("StudentsData"));
+        let confirmDelete = confirm("Are you sure you want to delete ?");
 
-        students.splice(indexOfItemToEdit, 1);
+        if(confirmDelete){
+            let students = JSON.parse(storage.getItem("StudentsData"));
 
-        storage.setItem("StudentsData", JSON.stringify(students));
+            students.splice(indexOfItemToEdit, 1);
 
-        storage.removeItem("StudentIndex");
+            storage.setItem("StudentsData", JSON.stringify(students));
+
+            storage.removeItem("StudentIndex");
+
+            alert("Deleted !");
+
+            // redirect to another page
+            window.location.href = "all_students.html";
+        }
 
     }
 
