@@ -8,6 +8,7 @@
     <script src="scripts/jquery-3.6.3.min.js"></script>
     <script src="scripts/script.js"></script>
     <script src="scripts/profile.js"></script>
+    <script src="scripts/student.js"></script>
     
     <script>
         loadHeader("#headerDiv");
@@ -24,16 +25,18 @@
    
     <div class="container">
         <div class="formBox">
-            <form>
+            <form id="profileForm">
 
                 <div>
                     <label for="studentID">Student ID</label>
                     <input type="number" id="studentID" name="studentID" />
+                    <!-- <input type="number" id="studentID" name="studentID" required/> -->
                 </div>
 
                 <div>
                     <label for="studentName">Student Name</label>
                     <input type="text" id="studentName" name="studentName" />
+                    <!-- <input type="text" id="studentName" name="studentName" required/> -->
                 </div>
 
                 <div>
@@ -44,11 +47,17 @@
                 <div>
                     <label for="studentGPA">Student GPA</label>
                     <input type="number" id="studentGPA" name="studentGPA" step="0.01" />
+                    <!-- <input type="number" id="studentGPA" name="studentGPA" step="0.01" required/> -->
+                </div>
+
+                <div>
+                    <label for="studentLevel">Student Level</label>
+                    <input type="number" id="studentLevel" name="studentLevel" min="1" max="4" />
                 </div>
 
                 <div>
                     <label for="studentDepartment">Student Department</label>
-                    <input type="text" id="studentDepartment" name="studentDepartment" />
+                    <input type="text" id="studentDepartment" name="studentDepartment" disabled/>
                 </div>
 
                 <div>
@@ -59,25 +68,26 @@
                 <div>
                     <label for="studentPhone">Student Phone</label>
                     <input type="tel" id="studentPhone" name="studentPhone" />
+                    <!-- <input type="tel" id="studentPhone" name="studentPhone" required/> -->
                 </div>
 
                 <div>
                     <label>Gender</label><br>
-                    <input type="radio" id="studentGenderMale" name="studentGender" />
+                    <input type="radio" id="studentGenderMale" name="studentGender" value="1"/>
                     <label for="studentGenderMale">Male</label>
-                    <input type="radio" id="studentGenderFemale" name="studentGender" />
+                    <input type="radio" id="studentGenderFemale" name="studentGender" value="0"/>
                     <label for="studentGenderFemale">Female</label>
                 </div>
 
                 <div>
                     <label>Status</label><br>
-                    <input type="checkbox" id="studentStatus" name="studentStatus" />
+                    <input type="checkbox" id="studentStatus" name="studentStatus" value="active"/>
                     <label for="studentStatus">Active</label>
                 </div>
 
                 <div>
                     <button type="button" id="editButton">Edit</button>
-                    <button type="submit" id="saveButton">Save</button>
+                    <button type="button" id="saveButton">Save</button>
                 </div>
 
             </form>
@@ -85,5 +95,8 @@
     </div>
 
 </body>
+<script>
+    document.getElementById("saveButton").addEventListener("click", formSubmitted);
+</script>
 
 </html>
