@@ -23,16 +23,16 @@
             display:flex;
             justify-content: center;
             flex-direction:column;
-            height:70%;
+            height:50%;
             border-radius: 20px;
             padding: 10px;
             box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.18), 0 6px 18px 2px rgba(0, 0, 0, 0.15);
 
             row-gap: 10px;
             column-gap: 5px;
-            align-items: center;
+            align-items:center;
             margin: auto;
-            width: 500px;
+            width: 700px;
             padding: 10px;
             
             background-color:  rgb(210, 223, 231, 0.8);
@@ -45,8 +45,9 @@
             border: 2px solid var(--input-border-color);
             border-radius: 14px;
             padding: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             font-size: var(--default-font-size);
+            align-self: center;
         }
 
         label{
@@ -69,10 +70,16 @@
             background-color: var(--primary-button-background-color);
             color: var(--primary-button-text-color);
         }
-        #addButton:active{
+        #goButton{
+            background-color: var(--special-button-background-color);
+            width: 40px;
+            font-size: small;
+        }
+        #addButton:active, #goButton:active{
             background-color: #197c0cb9;
             transition: 10ms;
         }
+
 
 
     </style>
@@ -82,16 +89,22 @@
     </head>
 
     <body>
-
+        <div id="headerDiv"></div>
         <div class="info">
-            <label for="name">Name  </label>
-            <input type="text" id="userName" name="name" />
-           
-            <label for="id">ID  </label>  
-            <input type="text" id="id" name="user_id" value="auto generated ID" readonly>
+            <div>
+                <label for="name">Name  </label>
+                <input type="text" id="userName" name="name">
+                <button type="button" id="goButton" onclick="alert('Generating id and password...')">Go</button>
+                <br>
+            </div>
 
-            <label for="password">Password  </label>  
-            <input type="text" id="password" name="user_pass" value="auto generated password" readonly>
+            <div>
+                <label for="id">ID  </label>  
+                <input type="text" id="id" name="user_id" value="auto generated ID" readonly>
+                <label for="password">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password  </label>  
+                <input type="text" id="password" name="user_pass" value="auto generated password" readonly>
+            </div> 
+            
             
             <button type="submit" id="addButton" onclick="alert('User Added')">Add</button>
         </div>
