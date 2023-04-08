@@ -3,6 +3,9 @@
     <head>
         <title>Login</title>
         <meta name="author" content="Mohamed Maged">
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/login.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="scripts/jquery-3.6.3.min.js"></script>
         <script src="scripts/script.js"></script>
         <script>
@@ -11,21 +14,22 @@
     </head>
     <body>
         <div id="headerDiv"></div>
-        <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif;"><br><br>Login</h1>
-        <br>
-        <br>
-        <form method="post" style="justify-content: center; text-align: center;">
-            <label for="user_name" style="font-family: Arial, Helvetica, sans-serif;">User Name:</label>
-            <br> 
-            <input type="text" name="user_name" style="border-radius: 5px; border-width: 1px;">
-            <br>
-            <br>
-            <label for="password" style="font-family: Arial, Helvetica, sans-serif;">Password:</label>
-            <br>  
-            <input type="password" name="password" style="border-radius: 5px; border-width: 1px;">
-            <br> 
-            <br> 
-            <input type="submit" style="font-family: Arial, Helvetica, sans-serif;">
-        </form>
+        <div class="login-form">
+            <p class="login-text">Login</p>
+            <p id="error-message" class="error"></p>
+            <form method="post" autocomplete="off">
+                <div class="user-name">
+                    <i class="fa fa-user"></i>
+                    <input type="text" name="user_name" placeholder="User Name" required>
+                </div>
+                <div class="password">
+                    <i class="fa fa-key"></i>
+                    <input type="password" name="password" placeholder="Password" required>    
+                </div>
+                <div> 
+                    <input type="submit">
+                </div>
+            </form>
+        </div>
     </body>
 </html>
