@@ -94,11 +94,10 @@ body{
 }
 
 .container .section .top-nav .title{
-    margin-left: 50px;
-    color: white;
-  
+    width: 100%;
+    text-align: center;
+    color: white;  
 }
-
 
 body.active .container .sidebar{
     left: 0;

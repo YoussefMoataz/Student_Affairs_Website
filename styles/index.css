@@ -1,0 +1,56 @@
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    .Full-grid{ margin: 250px;
+    display: grid;
+
+    grid-template-columns: 200px 200px ;
+    row-gap: 50px;
+    column-gap: 50px;
+    justify-content: center;
+
+
+
+    }
+    .button{
+    background-color: var(--secondary-button-background-color);
+
+    text-align: center;
+    padding-top: 40px;
+    border-radius: 50px;
+    color: white;
+    padding-bottom: 40px;
+
+
+    }
+
+    .button:hover{
+    cursor: pointer;
+    background-color: white;
+    color: var(--secondary-button-background-color);
+    }
+
+    .button:active{
+    opacity: 0.5;
+
+    }
+
+    .topnav{
+    display: grid;
+    background-color: var(--navigation-background-color);
+    height: 50px;
+    vertical-align: top;
+    }
+
+    .title{
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+
+    }
+
+
