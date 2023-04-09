@@ -11,19 +11,23 @@
     </head>
     <body>
         <div class="login-form">
-            <p class="login-text">Login</p>
+            <p class="login-text">Log in</p>
             <p id="error-message" class="error"></p>
             <form id="loginForm" autocomplete="off">
                 <div class="user-name">
-                    <i class="fa-solid fa-user"></i>
+                    <div class="icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
                     <input type="text" name="userName" id="userName" placeholder="User Name" required>
                 </div>
                 <div class="password">
-                    <i class="fa-solid fa-lock"></i>
+                    <div class="icon">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
                     <input type="password" name="password" id="password" placeholder="Password" required>    
                 </div>
                 <div> 
-                    <button class="submit-btn" onclick="validate_input()">Submit</button>
+                    <button class="submit-btn" onclick="validate_input()">Log in</button>
                 </div>
             </form>
         </div>
