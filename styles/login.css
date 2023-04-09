@@ -2,7 +2,6 @@ body
 {
     margin: 0;
     background-color: var(--main-background-color);
-    padding-top: 46px;
 }
 
 .login-form
