@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Student</title>
+    <title id="t">Student</title>
     <meta name="author" content="Youssef Moataz">
 
     <script src="scripts/jquery-3.6.3.min.js"></script>
@@ -85,9 +85,12 @@
                     <label for="studentStatus">Active</label>
                 </div>
 
+                <!-- to fill left grid item -->
+                <div></div>
+
                 <div>
-                    <button type="button" id="editButton">Edit</button>
-                    <button type="button" id="saveButton">Save</button>
+                    <button type="button" id="deleteButton">Delete</button>
+                    <button type="button" id="saveButton">Add</button>
                 </div>
 
             </form>
@@ -95,8 +98,15 @@
     </div>
 
 </body>
+
 <script>
+
+    getProfileDataToEdit();
+
     document.getElementById("saveButton").addEventListener("click", formSubmitted);
+
+    document.getElementById("deleteButton").addEventListener("click", deleteProfile);
+
 </script>
 
 </html>

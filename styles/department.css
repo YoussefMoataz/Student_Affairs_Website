@@ -1,12 +1,3 @@
-/* 
-    Author: Youssef Moataz
-    
-    This is used for:
-        -Add profile page
-        -Show profile page
-        -Edit profile page
-*/
-
 body, html{
     width: 100%;
     height: 100%;
@@ -17,14 +8,14 @@ body, html{
 html{
     background-color: white;
 }
-.container{
+.DepartmentContainer{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100%;
-}
-.formBox{
+} 
+.allForm{
     background-color: rgb(210, 223, 231, 0.8);
     border-radius: 20px;
     padding: 10px;
@@ -40,20 +31,48 @@ form{
     width: 600px;
     padding: 10px;
 }
-input[type="number"], input[type="text"], input[type="date"], input[type="email"],input[type="tel"] {
-    background-color: var(--input-background-color);
-    height: 10px;
-    width: 240px;
-    border: 2px solid var(--input-border-color);
-    border-radius: 14px;
-    padding: 10px;
-    margin-bottom: 20px;
+h1 {
+    text-align: center;
+    color: #153243;
+}
+.centerTB{
+    text-align: center;
     font-size: var(--default-font-size);
+    margin-left: auto;
+    margin-right: auto;
+    margin: auto;
+    border: 1px solid #153243;
+    border-collapse: collapse;
+    border-radius: 20px;
+}
+th, td{
+    border: 1px solid #153243;
+    padding: 10px;
+    text-align: center;
+    color: #153243;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+tr:hover {
+    background-color: #f2f2f2;
+}
+th {
+    background-color: #153243;
+    color: white;
 }
 label{
     color: var(--input-text-color);
     font-size: var(--default-font-size);
     font-family: Geneva, Verdana, sans-serif;
+}
+select{
+    background-color: var(--input-background-color);
+    border: 2px solid var(--input-border-color);
+    border-radius: 14px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: var(--default-font-size);
 }
 button{
     width: 70px;
@@ -65,12 +84,11 @@ button{
     margin: 6px;
     font-size: var(--default-font-size);
 }
-#saveButton{
+#SubmitButton{
     background-color: var(--primary-button-background-color);
     color: var(--primary-button-text-color);
 }
-#deleteButton{
-    background-color: var(--secondary-button-background-color);
-    color: var(--secondary-button-text-color);
-    display: none;
+#SubmitButton:hover{
+    background-color: #9a3f15;
+    color: white;
 }

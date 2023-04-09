@@ -1,55 +1,85 @@
 <!DOCTYPE html>
 <html>
-    <!-- <div class = "navBar">
-       <li><a href = "index.html">Home</a></li> 
-       <li><a href ="show_profile.html" >Add Student</a></li> 
-       <li><a href="all_students.html">View All Students</a></li> 
-       <li> <a href="show_profile.html">Edit</a></li>
-       <li><a href="department_assignment.html">Assign Department</a></li>
-       <li><a href="login.html">login</a></li> 
+   <link rel="stylesheet" href="styles/header.css">
+   <link rel="stylesheet" href="styles/all.css">
 
-    </div> -->
-
-    <style>
-         ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: var(--navigation-background-color);
-        position: fixed;
-        top: 0;
-        width: 100%;
-        }
-
-        li {
-        float: left;
-        }
-
-        li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        }
-
-        li a:hover:not(.active) {
-        background-color: #111;
-        }
-    </style>
 
     <body>
 
-        <ul>
-            <li><a href = "index.html">Home</a></li> 
-            <li><a href ="show_profile.html" >Add Student</a></li> 
-            <li> <a href="show_profile.html">Edit Student</a></li>
-            <li> <a href="show_profile.html">Show Student</a></li>
-            <li><a href="all_students.html">View All Students</a></li> 
-            <li><a href="department_assignment.html">Assign Department</a></li>
-            <li><a href="login.html">login</a></li> 
-        </ul>
+       <div class="container">
+            <div class="sidebar">
+                
+                <ul>
+                    <li>
+                        <span class="menu"> Menu</span>
+                    </li>
+                    <li><a href = "home.html" >
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class item> Home</span>
+                    </a></li> 
+                    <li><a href ="add_user.html" >
+                        <span class="icon"><i class="fas fa-user-plus"></i></span>
+                        <span class item>Add user</span>
+
+                    </a></li> 
+                    <li> <a href="show_profile.html">
+                        <span class="icon"><i class="fas fa-user"></i></span>
+                        <span class item> show profile</span>
+
+                    </a></li>
+                    <li> <a href="view_user.html">
+                        <span class="icon"><i class="fas fa-user-pen"></i></span>
+                        <span class item> Edit student</span>
+
+                        
+                    </a></li>
+                    <li><a href="all_students.html">
+                        <span class="icon"><i class="fas fa-clipboard"></i></span>
+
+                        <span class item> View All Students</span>
+
+                        
+                    </a></li> 
+                    <li><a href="department_assignment.html">
+                        <span class="icon"><i class="fas fa-landmark"></i></span>
+                        <span class item> Assign Department</span>
+
+                        
+                    </a></li>
+                    <li><a href="login.html">
+                        <span class="icon"><i class="fas fa-right-to-bracket"></i></span>
+                        <span class item> login</span>
+
+                        
+                    </a></li> 
+                </ul>
+
+            </div>
+            <div class="section">
+                <div class="top-nav">
+                    <div class="nav">
+                        <span><i class="fas fa-bars"></i></span>
+                    </div>
+                    <div class="title">
+                        <span><h1 id="h"></h1></span>
+                    </div>
+
+                    
+                </div>
+            </div>
+       </div>
+
+        <script>
+            var nav = document.querySelector(".nav");
+            nav.addEventListener("click", function(){
+                document.querySelector("body").classList.toggle("active");
+            })
+
+            const element = document.getElementById("h");
+            const newelment = document.getElementById("t");
+            element.innerHTML = newelment.innerHTML;
+
+        </script>
 
     </body>
     
