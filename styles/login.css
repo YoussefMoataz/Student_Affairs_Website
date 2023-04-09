@@ -32,11 +32,11 @@ body
 {
     color: var(--navigation-background-color);
     margin-left: 10px;
-    font-size: 25px;
+    font-size: 23px;
     position: absolute;
     left: 20px;
     top: 15px;
-    padding-top: 5px;
+    padding-top: 4px;
 }
 .login-text
 {
