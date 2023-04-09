@@ -72,6 +72,9 @@ function formSubmitted(){
 
 
     alert("Saved");
+
+    // redirect to another page
+    window.location.href = "all_students.html";
     
     // alert(JSON.stringify(student));
 
