@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+   <link rel="stylesheet" href="styles/header.css">
+   <link rel="stylesheet" href="styles/all.css">
+
+
+    <body>
+
+       <div class="container">
+            <div class="sidebar">
+                
+                <ul>
+                    <li>
+                        <span class="menu"> Menu</span>
+                    </li>
+                    <li><a href = "home.html" >
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class item> Home</span>
+                    </a></li> 
+                    <li><a href ="add_user.html" >
+                        <span class="icon"><i class="fas fa-user-plus"></i></span>
+                        <span class item>Add user</span>
+
+                    </a></li> 
+                    <li> <a href="show_profile.html">
+                        <span class="icon"><i class="fas fa-user"></i></span>
+                        <span class item> show profile</span>
+
+                    </a></li>
+                    <li> <a href="view_user.html">
+                        <span class="icon"><i class="fas fa-user-pen"></i></span>
+                        <span class item> Edit student</span>
+
+                        
+                    </a></li>
+                    <li><a href="all_students.html">
+                        <span class="icon"><i class="fas fa-clipboard"></i></span>
+
+                        <span class item> View All Students</span>
+
+                        
+                    </a></li> 
+                    <li><a href="department_assignment.html">
+                        <span class="icon"><i class="fas fa-landmark"></i></span>
+                        <span class item> Assign Department</span>
+
+                        
+                    </a></li>
+                    <li><a href="login.html">
+                        <span class="icon"><i class="fas fa-right-to-bracket"></i></span>
+                        <span class item> login</span>
+
+                        
+                    </a></li> 
+                </ul>
+
+            </div>
+            <div class="section">
+                <div class="top-nav">
+                    <div class="nav">
+                        <span><i class="fas fa-bars"></i></span>
+                    </div>
+                    <div class="title">
+                        <span><h1 id="h"></h1></span>
+                    </div>
+
+                    
+                </div>
+            </div>
+       </div>
+
+        <script>
+            var nav = document.querySelector(".nav");
+            nav.addEventListener("click", function(){
+                document.querySelector("body").classList.toggle("active");
+            })
+
+            const element = document.getElementById("h");
+            const newelment = document.getElementById("t");
+            element.innerHTML = newelment.innerHTML;
+
+        </script>
+
+    </body>
+    
+</html>

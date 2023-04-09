@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add User</title>
+        <meta name="author" content="Sara Walid">
+        <script src="scripts/jquery-3.6.3.min.js"></script>
+        <script src="scripts/script.js"></script>
+    <script>                
+        loadHeader("#headerDiv");
+    </script>
+    <link rel="stylesheet" href="styles/style.css">
+
+    <style>
+         body, html{
+            width: 100%;
+            height: 100%;
+            padding:0px;
+            margin:0px;
+            background-color: var(--main-background-color);
+        }
+
+        .info{
+            display:flex;
+            justify-content: center;
+            flex-direction:column;
+            height:50%;
+            border-radius: 20px;
+            padding: 10px;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.18), 0 6px 18px 2px rgba(0, 0, 0, 0.15);
+
+            row-gap: 10px;
+            column-gap: 5px;
+            align-items:center;
+            margin: auto;
+            width: 700px;
+            padding: 10px;
+            
+            background-color:  rgb(210, 223, 231, 0.8);
+        }
+
+        input{
+            background-color: var(--input-background-color);
+            height: 10px;
+            width: 240px;
+            border: 2px solid var(--input-border-color);
+            border-radius: 14px;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: var(--default-font-size);
+            align-self: center;
+        }
+
+        label{
+            color: var(--input-text-color);
+            font-family: Geneva, Verdana, sans-serif;
+            font-size: var(--default-font-size);
+        }
+
+        button{
+            width: 60px;
+            height: 30px;
+            padding: 8px;
+            border: 0px ;
+            border-radius: 6px;
+            text-align: center;
+            margin: 6px;
+            font-size:small;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.20), 0 6px 18px 2px rgba(0, 0, 0, 0.15);
+            cursor:pointer;
+            background-color: var(--primary-button-background-color);
+            color: var(--primary-button-text-color);
+        }
+        #goButton{
+            background-color: var(--special-button-background-color);
+            width: 40px;
+            font-size: small;
+        }
+        #addButton:active, #goButton:active{
+            background-color: #197c0cb9;
+            transition: 10ms;
+        }
+
+
+
+    </style>
+
+
+
+    </head>
+
+    <body>
+        <div id="headerDiv"></div>
+        <div class="info">
+            <div>
+                <label for="name">Name  </label>
+                <input type="text" id="userName" name="name">
+                <button type="button" id="goButton" onclick="alert('Generating id and password...')">Go</button>
+                <br>
+            </div>
+
+            <div>
+                <label for="id">ID  </label>  
+                <input type="text" id="id" name="user_id" value="auto generated ID" readonly>
+                <label for="password">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password  </label>  
+                <input type="text" id="password" name="user_pass" value="auto generated password" readonly>
+            </div> 
+            
+            
+            <button type="submit" id="addButton" onclick="alert('User Added')">Add</button>
+        </div>
+        
+
+
+
+    </body>
+</html>

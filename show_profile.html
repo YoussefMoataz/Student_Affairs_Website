@@ -2,90 +2,111 @@
 <html>
 
 <head>
-    <title>Student</title>
+    <title id="t">Student</title>
     <meta name="author" content="Youssef Moataz">
-    <style>
-        body, html{
-            width: 100%;
-            height: 100%;
-            padding:0px;
-            margin:0px;
-        }
-        .container{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100%;
-        }
-        .formBox{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin: auto;
-            width: 300px;
-            height: fit-content;
-            padding: 10px;
-        }
-        input[type="number"], input[type="text"], input[type="date"], input[type="email"],input[type="tel"] {
-            background-color: rgb(205, 212, 218);
-            height: 10px;
-            width: 150px;
-            border: 10px;
-            border-color: aqua;
-            border-radius: 10px;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
 
-    </style>
+    <script src="scripts/jquery-3.6.3.min.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/profile.js"></script>
+    <script src="scripts/student.js"></script>
+    
+    <script>
+        loadHeader("#headerDiv");
+    </script>
+    
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/profile.css">
+
 </head>
 
 <body>
 
-    <!-- <div id="headerDiv"><object type="text/html" data="header.html" style="overflow:auto; width: 100%; height: 100%;"></object></div> -->
+    <div id="headerDiv"></div>
    
     <div class="container">
         <div class="formBox">
-            <form>
+            <form id="profileForm">
 
-                <label for="studentID">Student ID</label><br>
-                <input type="number" id="studentID" name="studentID" /><br>
+                <div>
+                    <label for="studentID">Student ID</label>
+                    <input type="number" id="studentID" name="studentID" />
+                    <!-- <input type="number" id="studentID" name="studentID" required/> -->
+                </div>
 
-                <label for="studentName">Student Name</label><br>
-                <input type="text" id="studentName" name="studentName" /><br>
+                <div>
+                    <label for="studentName">Student Name</label>
+                    <input type="text" id="studentName" name="studentName" />
+                    <!-- <input type="text" id="studentName" name="studentName" required/> -->
+                </div>
 
-                <label for="studentBirthDate">Student Birth Date</label><br>
-                <input type="date" id="studentBirthDate" name="studentBirthDate" /><br>
+                <div>
+                    <label for="studentBirthDate">Student Birth Date</label>
+                    <input type="date" id="studentBirthDate" name="studentBirthDate" />
+                </div>
 
-                <label for="studentGPA">Student GPA</label><br>
-                <input type="number" id="studentGPA" name="studentGPA" step="0.01" /><br>
+                <div>
+                    <label for="studentGPA">Student GPA</label>
+                    <input type="number" id="studentGPA" name="studentGPA" step="0.01" />
+                    <!-- <input type="number" id="studentGPA" name="studentGPA" step="0.01" required/> -->
+                </div>
 
-                <label for="studentDepartment">Student Department</label><br>
-                <input type="text" id="studentDepartment" name="studentDepartment" /><br>
+                <div>
+                    <label for="studentLevel">Student Level</label>
+                    <input type="number" id="studentLevel" name="studentLevel" min="1" max="4" />
+                </div>
 
-                <label for="studentEmail">Student Email</label><br>
-                <input type="email" id="studentEmail" name="studentEmail" /><br>
+                <div>
+                    <label for="studentDepartment">Student Department</label>
+                    <input type="text" id="studentDepartment" name="studentDepartment" disabled/>
+                </div>
 
-                <label for="studentPhone">Student Phone</label><br>
-                <input type="tel" id="studentPhone" name="studentPhone" /><br>
+                <div>
+                    <label for="studentEmail">Student Email</label>
+                    <input type="email" id="studentEmail" name="studentEmail" />
+                </div>
 
-                <input type="radio" id="studentGenderMale" name="studentGender" />
-                <label for="studentGenderMale">Male</label>
-                <input type="radio" id="studentGenderFemale" name="studentGender" />
-                <label for="studentGenderFemale">Female</label><br>
+                <div>
+                    <label for="studentPhone">Student Phone</label>
+                    <input type="tel" id="studentPhone" name="studentPhone" />
+                    <!-- <input type="tel" id="studentPhone" name="studentPhone" required/> -->
+                </div>
 
-                <input type="checkbox" id="studentStatus" name="studentStatus" />
-                <label for="studentStatus">Active</label><br><br>
+                <div>
+                    <label>Gender</label><br>
+                    <input type="radio" id="studentGenderMale" name="studentGender" value="1"/>
+                    <label for="studentGenderMale">Male</label>
+                    <input type="radio" id="studentGenderFemale" name="studentGender" value="0"/>
+                    <label for="studentGenderFemale">Female</label>
+                </div>
 
-                <button type="button">Edit</button>
-                <button type="submit">Save</button>
+                <div>
+                    <label>Status</label><br>
+                    <input type="checkbox" id="studentStatus" name="studentStatus" value="active"/>
+                    <label for="studentStatus">Active</label>
+                </div>
+
+                <!-- to fill left grid item -->
+                <div></div>
+
+                <div>
+                    <button type="button" id="deleteButton">Delete</button>
+                    <button type="button" id="saveButton">Add</button>
+                </div>
 
             </form>
         </div>
     </div>
 
 </body>
+
+<script>
+
+    getProfileDataToEdit();
+
+    document.getElementById("saveButton").addEventListener("click", formSubmitted);
+
+    document.getElementById("deleteButton").addEventListener("click", deleteProfile);
+
+</script>
 
 </html>
