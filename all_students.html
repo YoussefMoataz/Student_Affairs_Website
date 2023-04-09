@@ -8,106 +8,200 @@
         <script>
             loadHeader("#headerDiv");
         </script>
+        <!-- search function -->
+        <script>
+        $(document).ready(function() {
+        $("#searchInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            if ($("#active").is(":checked")) {
+                
+            $("#tableBody tr.Active").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+            } else {
+                console.log("inactive");
+            $("#tableBody tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+            }
+        });
+
+        $("#active").on("click", function() {
+            $("#searchInput").trigger("keyup"); 
+        });
+        });
+        </script>
+        <!-- active show function -->
+        <script>
+            $(document).ready(function() {
+  $("#active").on("click", function() {
+    if ($(this).is(":checked")) {
+        $("#tableBody tr").hide().filter(function() {
+        return $(this).hasClass("Active");
+        }).show();
+    } else {
+        $("#tableBody tr").show();
+        
+    }
+  });
+});
+        </script>
+        
+        <link rel="stylesheet" href="styles/style.css">
         <style>
+            
             body{
+                width: 100%;
+                height: 100%;
+                padding:0px;
+                margin:0px;
+                justify-content: center;
+                align-items: center;
+                font-family: sans-serif;
+                background-color: var(--main-background-color);
                 text-align: center;
             }
-            .search input{
-                padding: 15px;
-                width: 400px;
-                height: 30px;
-                border-radius: 20px;
+            .table-box table{
+                align-self: center;
+                border-collapse: collapse;
+                margin-left: auto;
+                margin-right: auto;
+                table-layout: fixed;
+                width:100%;
+                height: 200px;
+                margin-top: 0px;
+                max-height: 300px;
+                overflow-y: scroll;
+                box-shadow: 0 10px 100px rgba(0, 0, 0, 0.5);
+                
+            }
+            .table-box thead tr{
+                position: sticky;
+                background-color: #31708E;
+                color: white;
+                font-weight: bold;
+                top: 0px;
+                z-index: -1;
+            }
+            .table-box th,.table-box td {
+                padding: 12px 15px;
+                border-bottom: 1px solid #632708;;
             }
 
+            .table-content{
+                overflow: auto;
+            }
+            .head{
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .head label {
+                display: flex;
+                margin-left: 10px;
+                cursor: pointer;
+             }
+            .head input[type="search"] {
+                width: 1000px;
+                height: 30px;
+                padding: 10px;
+                border-radius: 10px;
+                border: 1px solid #ccc;
+            }
+  
+            .head input[type="checkbox"] {
+                transform: scale(0.8);
+                margin-right: 5px;
+            }
+            .Active{
+                background-color: rgba(0, 128, 0, 0.499);
+            }
+            .inactive{
+                background-color: rgba(255, 0, 0, 0.585);
+            }
+            tr:hover {
+                box-shadow: 0px 9px 4px -6px grey;
+                background-color:#31708E;
+            }
+            tr:hover td{
+                cursor:pointer;
+                border-top:2px solid black;
+                border-bottom: 2px solid black;
+            }
+            a:link,a:visited{
+                color:black;
+            }
+            a:hover{
+                color:#153243;
+            }
+            a:active{
+                color:#632708;
+            }
+            
+
         </style>
+        
     </head>
     <body>
         <div id="headerDiv"></div>
-        <br><br><br>
-        <hr>
-        <div class="search">
+        
+        <div class="head">
             <form id="form" > 
-                <input type="search" id="query" name="q" placeholder="Search student...">
-                <button>find</button>
-                
-            </form>
-        </div>
-        
-        <input type="checkbox" id="active">
-        <label for="active">active</label>
-        
-        
+                <input type="search" id="searchInput" name="q" placeholder="Search student...">
+              </form>
+              <label>
+                  <input type="checkbox" id="active">
+                  active
+              </label>
+            </div>
         
         <hr>
-        <table bgcolor="Black" width="90%" height="90%" align="center">
+        <div class ="table-box">
+        <table id="searchInput">
             
-            <tr bgcolor="white" align="center">
-                <th width="20%">Id</th>
-                <th width="40%">First Name</th>
-                <th width="40%">Last Name</th>
-            </tr> 
-            <tr bgcolor="white"align="center">
-                <td>1111</td>
-                <td>xxxxx</td>
-                <td>xxxxx</td>
-            </tr>
-            <tr bgcolor="white"align="center">
-                <td>1111</td>
-                <td>xxxxx</td>
-                <td>xxxxx</td>
-            </tr>
-            <tr bgcolor="white"align="center">
-                <td>1111</td>
-                <td>xxxxx</td>
-                <td>xxxxx</td>
-            </tr>
-            <tr bgcolor="white"align="center">
-                <td>1111</td>
-                <td>xxxxx</td>
-                <td>xxxxx</td>
-            </tr>
-            <tr bgcolor="white"align="center">
-                <td>1111</td>
-                <td>xxxxx</td>
-                <td>xxxxx</td>
-            </tr>
-            <tr bgcolor="white"align="center">
-                <td>1111</td>
-                <td>xxxxx</td>
-                <td>xxxxx</td>
-            </tr>
+            <thead >
+                <th>Id</th>
+                <th >First Name</th>
+            </thead> 
+            <div class ="table-content">
+            <tbody id="tableBody">
+                
+            </tbody>
+            </div>
+            </table>
+        <script>
+            let storage = window.localStorage;
 
-            <tr bgcolor="white"align="center">
-                <td>1111</td>
-                <td>xxxxx</td>
-                <td>xxxxx</td>
-            </tr>
-            <tr bgcolor="white"align="center">
-                <td>1111</td>
-                <td>xxxxx</td>
-                <td>xxxxx</td>
-            </tr>
-            <tr bgcolor="white"align="center">
-                <td>1111</td>
-                <td>xxxxx</td>
-                <td>xxxxx</td>
-            </tr>
-            <tr bgcolor="white"align="center">
-                <td>1111</td>
-                <td>xxxxx</td>
-                <td>xxxxx</td>
-            </tr>
-            <tr bgcolor="white"align="center">
-                <td>1111</td>
-                <td>xxxxx</td>
-                <td>xxxxx</td>
-            </tr>
-            <tr bgcolor="white"align="center">
-                <td>11221</td>
-                <td>xxxxx</td>
-                <td>xxxxx</td>
-            </tr>
-        </table>
-    
+            let students = JSON.parse(storage.getItem("StudentsData"));
+            let i=0;
+            let checkbox = document.querySelector('input[name="active"]');
+            students.forEach(function(studentJ) {
+                let student = JSON.parse(studentJ);
+                
+                if(student.status ){
+                    $('tbody').append(`<tr class="Active" id="${i}">
+                    <td>${student.id}</td>
+                    <td>${student.name}</td>
+                    </tr>`);
+                    i++;
+                }
+                else{
+                $('tbody').append(`<tr class="inactive" id="${i}">
+                    <td>${student.id}</td>
+                    <td>${student.name}</td>
+                    </tr>`);
+                    i++;
+                }
+            });
+            $('tbody').on('click', 'tr', function() {
+            let id = $(this).attr('id');
+            window.localStorage.setItem("StudentIndex",id)
+            window.location.href = 'show_profile.html?id=' + id;;
+        });
+            
+        </script>
     </body>
+    </div>
+    
 </html>
