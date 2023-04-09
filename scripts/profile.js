@@ -110,7 +110,7 @@ function getProfileDataToEdit(){
         document.getElementsByName("studentGender")[1 - student.gender].checked = true;
         document.getElementById("studentStatus").checked = student.status;
 
-        
+
         document.getElementById("studentDepartment").addEventListener("click", goToDepartmentAssignment);
 
 
@@ -149,9 +149,9 @@ function deleteProfile(){
 
 function goToDepartmentAssignment(){
 
-    let confirmDelete = confirm("Are you sure you want to leave this page ?");
+    let confirmLeavePage = confirm("Are you sure you want to leave this page ?");
 
-    if(confirmDelete){
+    if(confirmLeavePage){
 
         window.location.href = "department_assignment.html";
 
