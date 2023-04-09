@@ -33,23 +33,26 @@ body
 {
     color: var(--navigation-background-color);
     margin-left: 10px;
-    font-size: 30px;
+    font-size: 25px;
     position: absolute;
     left: 20px;
     top: 15px;
-    padding-top: 2px;
+    padding-top: 5px;
 }
 .login-text
 {
     font-size: 40px;
     font-weight: 500;
     margin: 0;
+    color: var(--navigation-background-color);
 }
 
 .error
 {
     color: red;
     font-style: italic;
+    white-space: nowrap;
+    margin-top: 30px;
 }
 input[type="text"], [type="password"]
 {
@@ -84,7 +87,7 @@ input[type="text"]:focus, [type="password"]:focus
 
 
 
-input[type="submit"]
+input[type="submit"], .btn
 {
     width: 370px;
     height: 36px;
@@ -97,13 +100,13 @@ input[type="submit"]
 }
 
 
-input[type="submit"]:hover
+input[type="submit"]:hover, .btn
 {
     cursor: pointer;
     opacity: 0.95;
 }
 
-input[type="submit"]:active
+input[type="submit"]:active, .btn
 {
     opacity: 0.9;
 }

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login</title>
+        <title id="t">Login</title>
         <meta name="author" content="Mohamed Maged">
         <link rel="stylesheet" href="styles/style.css">
         <link rel="stylesheet" href="styles/login.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/4d99b06c9f.js" crossorigin="anonymous"></script>
         <script src="scripts/jquery-3.6.3.min.js"></script>
         <script src="scripts/script.js"></script>
         <script>
@@ -17,19 +17,20 @@
         <div class="login-form">
             <p class="login-text">Login</p>
             <p id="error-message" class="error"></p>
-            <form method="post" autocomplete="off">
+            <form id="loginForm" autocomplete="off">
                 <div class="user-name">
-                    <i class="fa fa-user"></i>
-                    <input type="text" name="user_name" placeholder="User Name" required>
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" name="userName" id="userName" placeholder="User Name" required>
                 </div>
                 <div class="password">
-                    <i class="fa fa-key"></i>
-                    <input type="password" name="password" placeholder="Password" required>    
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" name="password" id="password" placeholder="Password" required>    
                 </div>
                 <div> 
-                    <input type="submit">
+                    <input type="submit" id="loginSubmitBtn">
                 </div>
             </form>
         </div>
+        <script src="scripts/login.js"></script>
     </body>
 </html>
