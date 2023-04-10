@@ -16,13 +16,21 @@ body, html{
 }
 html{
     background-color: white;
+    background-color: var(--main-background-color);
 }
-.container{
+body::before{
+    position: relative;
+    background-color: var(--main-background-color);
+}
+body::after{
+position: relative;
+}
+.formContainer{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100%;
+    height: 90%;
 }
 .formBox{
     background-color: rgb(210, 223, 231, 0.8);
@@ -40,14 +48,27 @@ form{
     width: 600px;
     padding: 10px;
 }
-input[type="number"], input[type="text"], input[type="date"], input[type="email"],input[type="tel"] {
+@media all and (max-width: 768px){
+    form{
+        display: grid;
+        grid-template-columns: 300px ;
+        row-gap: 14px;
+        align-items: center;
+        width: 300px;
+    }
+    .formContainer{
+        height: 140%;
+    }
+}
+input[type="number"], input[type="text"], input[type="date"], 
+input[type="email"],input[type="tel"] {
     background-color: var(--input-background-color);
-    height: 10px;
+    height: 36px;
     width: 240px;
     border: 2px solid var(--input-border-color);
     border-radius: 14px;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     font-size: var(--default-font-size);
 }
 label{
@@ -63,6 +84,17 @@ button{
     border-radius: 6px;
     text-align: center;
     margin: 6px;
+    font-size: var(--default-font-size);
+}
+#studentDepartment{
+    text-align: start;
+    background-color: var(--input-background-color);
+    height: 36px;
+    width: 240px;
+    border: 2px solid var(--input-border-color);
+    border-radius: 14px;
+    padding: 10px;
+    margin-bottom: 18px;
     font-size: var(--default-font-size);
 }
 #saveButton{
