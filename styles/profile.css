@@ -16,8 +16,16 @@ body, html{
 }
 html{
     background-color: white;
+    background-color: var(--main-background-color);
 }
-.container{
+body::before{
+    position: relative;
+    background-color: var(--main-background-color);
+}
+body::after{
+position: relative;
+}
+.formContainer{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,6 +47,18 @@ form{
     margin: auto;
     width: 600px;
     padding: 10px;
+}
+@media all and (max-width: 768px){
+    form{
+        display: grid;
+        grid-template-columns: 300px ;
+        row-gap: 14px;
+        align-items: center;
+        width: 300px;
+    }
+    .formContainer{
+        height: 140%;
+    }
 }
 input[type="number"], input[type="text"], input[type="date"], 
 input[type="email"],input[type="tel"] {
