@@ -8,12 +8,10 @@ function validate_input()
     if(user_name == "admin" && password == "admin")
     {
         window.location.href = '/home.html';
-        alert("you have logged in successfully");
+        // alert("you have logged in successfully");
     }
     else
     {
-        // window.location.reload();
-        // document.getElementById("error-message").innerHTML = error_msg;
-        alert("Wrong Credentials. Please Try Again.")
+        document.getElementById("error-message").innerHTML = error_msg;
     }
 }
