@@ -11,7 +11,12 @@
                 
                 <ul>
                     <li>
-                        <span class="menu"> Menu</span>
+                        <div class="navMenu">
+                            <div class="iconMenu">
+                                <span><i class="fas fa-bars"></i></span>
+                            </div>
+                            <span class="menu"> Menu</span>
+                        </div>
                     </li>
                     <li><a href = "home.html" >
                         <span class="icon"><i class="fas fa-home"></i></span>
@@ -19,17 +24,17 @@
                     </a></li> 
                     <li><a href ="add_user.html" >
                         <span class="icon"><i class="fas fa-user-plus"></i></span>
-                        <span class item>Add user</span>
+                        <span class item>Add User</span>
 
                     </a></li> 
                     <li> <a href="view_user.html">
                         <span class="icon"><i class="fas fa-user-pen"></i></span>
-                        <span class item> Edit user</span>
+                        <span class item> Edit User</span>
 
                         
                     </a></li>
                     <li> <a href="show_profile.html">
-                        <span class="icon"><i class="fas fa-user"></i></span>
+                        <span class="icon"><i class="fas fa-user-plus"></i></span>
                         <span class item> Add Student</span>
 
                     </a></li>
@@ -42,7 +47,7 @@
                     </a></li> 
                     <li><a href="login.html">
                         <span class="icon"><i class="fas fa-right-to-bracket"></i></span>
-                        <span class item> logout</span>
+                        <span class item> Logout</span>
 
                         
                     </a></li> 
@@ -66,6 +71,11 @@
         <script>
             var nav = document.querySelector(".nav");
             nav.addEventListener("click", function(){
+                document.querySelector("body").classList.toggle("active");
+            })
+
+            var menu = document.querySelector(".iconMenu");
+            menu.addEventListener("click", function(){
                 document.querySelector("body").classList.toggle("active");
             })
 

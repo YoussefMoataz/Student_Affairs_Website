@@ -11,14 +11,14 @@ body{
 }
 
 
-.container .sidebar{
+.container .sidebar
+{
     background-color: var( --navigation-background-color);
     position: fixed;
     top: 0;
     left: -225px;
     width: 225px;
     height: 100%;
-    padding: 3px 0;
     transition: all 0.5s ease;
     z-index: 2;
 }
@@ -30,14 +30,22 @@ body{
 
 
 .container .sidebar ul li a ,
-.container .sidebar .menu{
+.container .sidebar ul li .navMenu{
     display: block;
     color: var(--navigation-text-color);
     padding: 14px 16px;
     border-bottom:  1px solid var(--secondary-button-background-color);
     font-size: 16px;
     position: relative;
+    text-align: left;
     
+
+}
+
+
+.container .sidebar ul li .navMenu .menu{
+    font-size: 20px;
+    margin-left: 10px;
 
 }
 
@@ -73,19 +81,30 @@ body{
 
 .container .section .top-nav{
     background-color: var(--navigation-background-color);
-    height: 50px;
+    height: 57px;
     display: flex;
     align-items: center;
     padding: 0 30px;
 }
 
-.container .section .top-nav .nav span{
+.container .section .top-nav .nav span,
+.container .sidebar ul li .navMenu .iconMenu
+{
     font-size: 28px;
     color: white;
 
 }
 
-.container .section .top-nav .nav span:hover{
+.container .sidebar ul li .navMenu .iconMenu{
+    font-size: 25px;
+    display: inline;
+}
+
+
+.container .section .top-nav .nav span:hover,
+.container .sidebar ul li .navMenu .iconMenu:hover
+
+{
     cursor: pointer;
     color:var(--secondary-button-background-color) ;
 }
@@ -113,10 +132,21 @@ body.active .container .section{
 
 }
 
-/* body.active .container .section .top-nav .title{
-    padding-right: 215px;
-    
-} */
+body.active .container .section .top-nav .nav span{
+    visibility: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
