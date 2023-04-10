@@ -110,6 +110,6 @@ input[type="text"]:focus, [type="password"]:focus
 
 .submit-btn:active
 {
-    opacity: 1;
+    opacity: 0.9;
 }
 
