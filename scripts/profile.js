@@ -204,5 +204,4 @@ function generateStudentID(){
 
     }
 
-
 }
