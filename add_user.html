@@ -38,13 +38,18 @@
         </div>
         
         <script> 
+        
+        
+        generateAndSetId();
+        generateAndSetPassword();
+      
         function requiredInput() {
 	        if(document.getElementById("userName").value != "") { 
                 document.getElementById("addButton").addEventListener("click", store);
             }
         }
-        generateAndSetId();
-        generateAndSetPassword();
+        
+        
         </script>
 
 
