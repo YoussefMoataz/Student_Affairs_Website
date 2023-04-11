@@ -1,0 +1,139 @@
+body, html{
+    width: 100%;
+    height: 100%;
+    padding:0px;
+    margin:0px;
+    background-color: var(--main-background-color);
+}
+.icon{
+    color: #204658;
+    
+}
+
+.content{
+    display:flex;
+    justify-content: center;
+    flex-direction:column;
+    height: 450px;;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.18), 0 6px 18px 2px rgba(0, 0, 0, 0.15);
+    margin: auto;
+    margin-top: 110px;
+    width: 500px;
+    background-color:  rgb(210, 223, 231, 0.8);
+    align-items: center;
+}
+
+input{
+    background-color: var(--input-background-color);
+    height: 30px;
+    width: 220px;
+    border: 2px solid var(--input-border-color);
+    border-radius: 14px;
+    padding: 10px;
+    margin-bottom: 30px;
+    font-size: var(--default-font-size);
+    align-self: center;
+}
+
+#showPass{
+    width: 20px;
+    height: 15px;
+}
+
+#userId{
+    background-color: var(--input-background-color);
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    width: 50px;
+    height: 20px;
+    cursor: pointer;
+    font-size: small;
+    border: 2px solid var(--input-border-color);
+    border-radius: 14px;
+    align-content: center;
+}
+
+button{
+    width: 60px;
+    height: 30px;
+    padding: 8px;
+    border: 0px ;
+    border-radius: 6px;
+    text-align: center;
+    margin: 6px;
+    font-size:small;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.20), 0 6px 18px 2px rgba(0, 0, 0, 0.15);
+    cursor:pointer;
+    background-color: var(--primary-button-background-color);
+    color: var(--primary-button-text-color);
+
+}
+
+#editButton1,#editButton2{
+    background-color: var(--secondary-button-background-color);
+    color: var(--primary-button-text-color);
+    width: 40px;
+    align-content: center;
+}
+
+#saveButton{
+    background-color: var(--primary-button-background-color);
+    color: var(--primary-button-text-color);
+
+}
+
+#deleteButton{
+    background-color: var(--secondary-button-background-color);
+    color: var(--secondary-button-text-color);
+}
+
+#editButton1:active,#editButton2:active{
+    background-color: #ffbf0020;
+    transition: 50ms;
+}
+
+#deleteButton:active{
+    background-color: #b82d0e;
+    transition: 10ms;
+}
+
+#saveButton:active{
+    background-color: #197c0cb9;
+    transition: 10ms;
+}
+
+
+.info{
+    display:flex;
+    justify-content: center;
+    flex-direction:column;
+    height: 400px;
+    border-radius: 20px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.18), 0 6px 18px 2px rgba(0, 0, 0, 0.15);
+    align-items:center;
+    margin: auto;
+    margin-top: 110px;
+
+    width: 450px;
+    padding: 10px;
+    
+    background-color:  rgb(210, 223, 231, 0.8);
+}
+
+label{
+    color: var(--input-text-color);
+    font-family: Geneva, Verdana, sans-serif;
+    font-size: var(--default-font-size);
+    align-items: center;
+}
+
+#goButton{
+    background-color: var(--special-button-background-color);
+    width: 70px;
+}
+
+#addButton:active, #goButton:active{
+    background-color: #197c0cb9;
+    transition: 10ms;
+}
