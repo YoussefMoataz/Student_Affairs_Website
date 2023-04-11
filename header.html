@@ -33,7 +33,7 @@
 
                         
                     </a></li>
-                    <li> <a href="show_profile.html">
+                    <li id="profilePage"> <a href="show_profile.html">
                         <span class="icon"><i class="fas fa-user-plus"></i></span>
                         <span class item> Add Student</span>
 
@@ -68,22 +68,7 @@
             </div>
        </div>
 
-        <script>
-            var nav = document.querySelector(".nav");
-            nav.addEventListener("click", function(){
-                document.querySelector("body").classList.toggle("active");
-            })
-
-            var menu = document.querySelector(".iconMenu");
-            menu.addEventListener("click", function(){
-                document.querySelector("body").classList.toggle("active");
-            })
-
-            const element = document.getElementById("h");
-            const newelment = document.getElementById("t");
-            element.innerHTML = newelment.innerHTML;
-
-        </script>
+        <script src="scripts/header.js"></script>
 
     </body>
     
