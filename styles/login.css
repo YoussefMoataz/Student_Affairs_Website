@@ -41,6 +41,7 @@ body
     left: 0;
     top: 0;
     bottom: 0;
+    transition: background-color 0.15s;
 }
 .login-text
 {
@@ -72,7 +73,7 @@ input[type="text"], [type="password"]
     font-size: 20px;
     color: var(--navigation-background-color);
     background-color: rgb(237, 235, 235);
-    transition: 0.15s;
+    transition: background-color 0.15s, border-color 0.15s; 
 }
 
 input[type="text"]:hover, [type="password"]:hover

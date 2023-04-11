@@ -13,5 +13,9 @@ function validate_input()
     else
     {
         document.getElementById("error-message").innerHTML = error_msg;
+        document.getElementById("userName").style.borderColor = "red";
+        document.getElementById("user-icon").style.backgroundColor = "red";
+        document.getElementById("password").style.borderColor = "red";
+        document.getElementById("pass-icon").style.backgroundColor = "red";
     }
 }
