@@ -1,173 +1,72 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>View User</title>
+        <title id = "t">View User</title>
         <meta name = "author" content = "Sara Walid">
+
         <script src="scripts/jquery-3.6.3.min.js"></script>
         <script src="scripts/script.js"></script>
-    <script>                
-        loadHeader("#headerDiv");
-    </script>
-    <link rel="stylesheet" href="styles/style.css">
+        <script src="scripts/user.js"></script>
+        <script> loadHeader("#headerDiv");</script>
 
-    <style>
-         body, html{
-            width: 100%;
-            height: 100%;
-            padding:0px;
-            margin:0px;
-            background-color: var(--main-background-color);
-        }
-        
-        .content{
-            display:flex;
-            justify-content: center;
-            flex-direction:column;
-            height:70%;
-            border-radius: 20px;
-            padding: 10px;
-            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.18), 0 6px 18px 2px rgba(0, 0, 0, 0.15);
-
-            row-gap: 10px;
-            column-gap: 5px;
-            align-items: center;
-            margin: auto;
-            width: 500px;
-            padding: 10px;
-            
-            background-color:  rgb(210, 223, 231, 0.8);
-        }
-
-        #userName , #userPassword{
-            background-color: var(--input-background-color);
-            height: 10px;
-            width: 240px;
-            border: 2px solid var(--input-border-color);
-            border-radius: 14px;
-            padding: 10px;
-            margin-bottom: 30px;
-            font-size: var(--default-font-size);
-        }
-        
-        label{
-            color: var(--input-text-color);
-            font-family: Geneva, Verdana, sans-serif;
-            font-size: var(--default-font-size);
-        }
-
-        .selection{
-            height: 10px;
-            width: 240px;
-            border-radius: 14px;
-            padding: 10px;
-            margin-bottom: 30px;
-            font-size: var(--default-font-size);
-        }
-
-        button{
-            width: 60px;
-            height: 30px;
-            padding: 8px;
-            border: 0px ;
-            border-radius: 6px;
-            text-align: center;
-            margin: 6px;
-            font-size: var(--default-font-size);
-            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.20), 0 6px 18px 2px rgba(0, 0, 0, 0.15);
-            cursor:pointer;
-        }
-        
-        #editButton1,#editButton2{
-            background-color: var(--special-button-background-color);
-            color: var(--primary-button-text-color);
-            width: 40px;
-            height: 30px;
-            font-size: small;
-        }
-        
-        #saveButton{
-            background-color: var(--primary-button-background-color);
-            color: var(--primary-button-text-color);
-
-        }
-
-        #deleteButton{
-            background-color: var(--secondary-button-background-color);
-            color: var(--secondary-button-text-color);
-        }
-
-        #editButton1:active,#editButton2:active{
-            background-color: #ffbf0020;
-            transition: 50ms;
-        }
-
-        #deleteButton:active{
-            background-color: #b82d0e;
-            transition: 10ms;
-        }
-
-        #saveButton:active{
-            background-color: #197c0cb9;
-            transition: 10ms;
-        }
-        </style>
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/user.css">
     </head>
 
 
     <body>
-
         <div id="headerDiv"></div>
         <div class="content">
+            <span class="icon"><i class="fa-solid fa-user-pen fa-2xl"></i></span> <br>
+            <br>
             <div class="selection">
                 <label for="id">Select ID  </label>
-                <select name="id" id="userId">
-                <option value="user1">100</option>
-                <option value="user2">101</option>
-                <option value="user3">102</option>
-                <option value="user4">103</option>
-                <option value="user5">104</option>
-                <option value="user6">105</option>
-                <option value="user7">106</option>
-                <option value="user8">107</option>
-                <option value="user9">108</option>
-                <option value="user10">109</option>
+                <select id="userId" >
+
                 </select>
                 <br>
                 </div>
 
                 <div class="data">
-                    <label for="name">Name  </label>
-                    <input type="text" id="userName" name="name" readonly>
+                    <label for="name">Name  </label> <br>
+                    <input type="text" id="userName" onkeyup="requiredInput()" readonly>
                     <button type="button" id="editButton1">Edit</button>
                     <br>
-                    <label for="password">Password  </label>  
-                    <input type="password" value="user password" id="userPassword" readonly>
+                    <label for="password">Password  </label> <br>
+                    <input type="password" id="userPassword" onkeyup="requiredInput()" readonly>
                     <button type="button" id="editButton2">Edit</button>
                     <br><br>
-                    <input id="showPass"type="checkbox"  onclick="myFunction()">Show Password
-                    <script>
-                        function myFunction() {
-                        var x = document.getElementById("userPassword");
-                        if (x.type === "password") {
-                            x.type = "text";
-                        } else {
-                            x.type = "password";
-                        }
-                        }
+                    <input id="showPass"type="checkbox"  onclick="myFunction()"> Show Password
 
-                        document.getElementById('editButton1').onclick = function() {
-                        document.getElementById('userName').readOnly = false;
-                        };
-
-                        document.getElementById('editButton2').onclick = function() {
-                        document.getElementById('userPassword').readOnly = false;
-                        };
-                    </script>
                 </div>
                 
-        <button type="button" id="deleteButton" onclick="alert('User is Deleted')">Delete</button>
-        <button type="submit" id="saveButton" onclick="alert('Changes Saved')">Save</button>
+        <button type="button" id="deleteButton">Delete</button>
+        <button type="button" id="saveButton">Save</button>
 
         </div>
+
+        <script>
+        getUserIDs();
+
+        // enable editing username and password 
+        document.getElementById('editButton1').onclick = function(){
+        document.getElementById('userName').readOnly = false; }
+
+        document.getElementById('editButton2').onclick = function(){
+        document.getElementById('userPassword').readOnly = false; }
+
+
+        document.getElementById("deleteButton").addEventListener("click", deleteUser);
+
+
+
+        document.getElementById("userId").addEventListener("change", edit);
+
+        function requiredInput() {
+	        if(document.getElementById("userName").value && document.getElementById("userPassword").value != "") { 
+                document.getElementById("saveButton").addEventListener("click", save);
+            }
+        }
+        </script>
     </body>
 </html>
