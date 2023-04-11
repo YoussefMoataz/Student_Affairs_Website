@@ -33,6 +33,23 @@ function formSubmitted(){
     }
 
     let status = document.getElementById("studentStatus").checked;
+
+
+    if(id == ""){
+        alert("ID can't be empty");
+        return;
+    }
+
+    if(name == ""){
+        alert("Name can't be empty");
+        return;
+    }
+
+    if(gender == ""){
+        alert("Please select a gender");
+        return;
+    }
+
     
     let student = new Student(id, name, dateOfBirth, gpa, level, department, email, phone, gender, status);
 
