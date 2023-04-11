@@ -151,12 +151,17 @@ function generateAndSetPassword() {
 
 var counter = 100;
 function generateRandomId() {
-
+    if(JSON.parse(localStorage.getItem("UsersData"))== null){
+        return 100;
+    }
+    else{
     let users = JSON.parse(storage.getItem("UsersData"));
 
     var counter = JSON.parse(users[users.length - 1]).id;
     counter++; // Generate random ID 
 
+    }
+    
 
     return counter;
 }
@@ -164,6 +169,7 @@ function generateRandomId() {
 function generateAndSetId() {
     var generatedId = generateRandomId(); // Generate a random ID
     document.getElementById("id").value = generatedId; // Set the generated ID as the value of the input field
+  
 }
     
 function getUserIDs(){
