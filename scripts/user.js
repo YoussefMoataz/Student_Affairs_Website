@@ -109,22 +109,23 @@ function deleteUser(){
         let confirmation = confirm("Are you sure you want to delete this user?");
 
         if(confirmation){
-
+            // if(users.length == 0){
+            //     localStorage.clear();
+            // }
             var UserIndex = document.getElementById("userId").selectedIndex;
 
             let users = JSON.parse(storage.getItem("UsersData"));
 
             users.splice(UserIndex, 1);
-            // console.log(UserIndex);
 
             storage.setItem("UsersData", JSON.stringify(users));
 
-            // storage.removeItem("UserIndex");
 
             alert("User Deleted.");
 
             location.reload();
         }
+    
 
     }
 }
@@ -151,7 +152,10 @@ function generateAndSetPassword() {
 
 var counter = 100;
 function generateRandomId() {
-    if(JSON.parse(localStorage.getItem("UsersData"))== null){
+    if(localStorage.getItem("UsersData")== null){
+        return 100;
+    }
+    else if(localStorage.getItem("UsersData")== '[]'){
         return 100;
     }
     else{
@@ -185,6 +189,10 @@ function getUserIDs(){
     $('#userId').append(`<option value="---" selected hidden></option>`);
 
 
+}
+
+function redirect(){
+    window.location.href = "home.html";
 }
 
    
