@@ -18,7 +18,7 @@ function Submitted() {
   if (studentToSetDepartment.level != 3) {
 
     alert("Error: This action is only applicable for students at level 3.");
-    return;
+    goToProfile();
   
   }
 
