@@ -87,7 +87,8 @@ function getProfileDataToEdit(){
 
     if(storage.getItem("StudentIndex") != null && 
     storage.getItem("StudentIndex") != -1 &&
-    document.referrer.includes("all_students.html") // check update not add student request
+    (document.referrer.includes("all_students.html") || 
+    document.referrer.includes("department_assignment.html")) // check update not add student request
     ){
 
         indexOfItemToEdit = storage.getItem("StudentIndex");
@@ -115,7 +116,6 @@ function getProfileDataToEdit(){
 
 
         document.getElementById("studentDepartment").addEventListener("click", goToDepartmentAssignment);
-
 
     }
 
