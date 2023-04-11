@@ -7,6 +7,14 @@ body, html{
 }
 html{
     background-color: white;
+    background-color: var(--main-background-color);
+}
+body::before{
+    position: relative;
+    background-color: var(--main-background-color);
+}
+body::after{
+position: relative;
 }
 .DepartmentContainer{
     display: flex;
@@ -44,6 +52,8 @@ h1 {
     border: 1px solid #153243;
     border-collapse: collapse;
     border-radius: 20px;
+    /* give a little more width*/
+    width: 600px;
 }
 th, td{
     border: 1px solid #153243;
@@ -89,6 +99,38 @@ button{
     color: var(--primary-button-text-color);
 }
 #SubmitButton:hover{
-    background-color: #9a3f15;
+    cursor: pointer;
+    background-color: #822b03;
     color: white;
+}
+.formContent{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin: auto;
+
+}
+@media all and (max-width: 768px){
+    form{
+        display: grid;
+        grid-template-columns: 300px ;
+        row-gap: 14px;
+        align-items: center;
+        width: 300px;
+    }
+    .allForm{
+        height: 140%;
+    } 
+    .centerTB {
+        width: 100%;
+        font-size: 14px;
+    }
+    select {
+        width: 100%;
+        font-size: 14px;
+    }
+    #SubmitButton {
+        width: 100%;
+        font-size: 14px;
+    } 
 }

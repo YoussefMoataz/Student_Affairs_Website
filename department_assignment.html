@@ -1,46 +1,91 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta name="author" content="Nourhan Mahmoud">
-    <title>Department Assignment</title>
-    <script src="scripts/jquery-3.6.3.min.js"></script>
-    <script src="scripts/script.js"></script>
-    <script>
-        loadHeader("#headerDiv");
-    </script>
+  <title id="t">Department Assignment</title>
+  <meta name="author" content="Nourhan Mahmoud" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script src="scripts/jquery-3.6.3.min.js"></script>
+  <script src="scripts/script.js"></script>
+  <script src="scripts/student.js"></script>
+  <script src="scripts/department.js"></script>
+
+  <script>
+    loadHeader("#headerDiv");
+  </script>
+
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/department.css" />
+
 </head>
+
 <body>
-    <div id="headerDiv"></div><br><br>
-    <h1>Department Assignment Page</h1>
-    <div>
-        <table bgcolor="Black" width="400">
-            <tr bgcolor="white" align="center">
-                <th width="100">Student ID</th>
-                <th width="150">Student Name</th>
-            </tr>
-            <tr bgcolor="white"align="center">
-                <td>123</td>
-                <td>Mark xxx</td>
-            </tr>
-        </table> <br>
+    
+  <div id="headerDiv"></div>
+
+    <div class="DepartmentContainer">
+      <div class="allForm">
+
+        <h1>Department Assignment</h1>
+        <form>
+
+          <div class="formContent">
+            <div>
+              <table class="centerTB">
+                <tr>
+                  <th>Student ID</th>
+                  <th>Student Name</th>
+                  <th>Current Department</th>
+                </tr>
+                <tr>
+                  <div>
+                    <td id="SID"></td>
+                  </div>
+                  <div >
+                    <td id="SName"></td>
+                  </div>
+                  <div >
+                    <td id="SDepartment"></td>
+                  </div>
+                </tr>
+              </table>
+            </div>
+            <br />
+
+            <div>
+              <label for="Department">Department: </label>
+              <br />
+              <select name="Department">
+
+                <option value="" disabled selected>Select a department</option>
+                <option value="1">Computer Science</option>
+                <option value="2">Information System</option>
+                <option value="3">Artificial Intelligence</option>
+                <option value="4">Information Technology</option>
+                <option value="5">Operations Research and Decision Support</option>
+                <option value="6">Software Engineering</option>
+                <option value="7">Networks and Cybersecurity</option>
+                <option value="8">Data Science</option>
+                <option value="9">Computing and Bioinformatics</option>
+
+              </select>
+              <br />
+
+              <div>
+                <button type="button" id="SubmitButton">Submit</button>
+              </div>
+
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-    <div>
-        <tr>  
-        <td>Department</td>
-        <td><select name="Department">
-        <option value="1">Computer Science</option>
-        <option value="2">Information System</option>
-        <option value="3">Artificial Intelligence</option>
-        <option value="4">Information Technology </option>
-        <option value="5">Operations Research and Decision Support</option>
-        <option value="6">Software Engineering</option>
-        <option value="7">Networks and Cybersecurity</option>
-        <option value="8">Data Science</option>
-        <option value="9">Computing and Bioinformatics</option>
-        </select></td>
-        </tr>
-        <br><br>
-        <input type="submit" value="Submit" />
-    </div>  
+    
 </body>
+<script>
+  assignDepartment();
+  document.getElementById("SubmitButton").addEventListener("click", Submitted);
+</script>
+
 </html>
