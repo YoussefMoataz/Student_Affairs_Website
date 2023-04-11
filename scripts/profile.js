@@ -85,7 +85,10 @@ function formSubmitted(){
 function getProfileDataToEdit(){
 
 
-    if(storage.getItem("StudentIndex") != null && storage.getItem("StudentIndex") != -1){
+    if(storage.getItem("StudentIndex") != null && 
+    storage.getItem("StudentIndex") != -1 &&
+    document.referrer.includes("all_students.html") // check update not add student request
+    ){
 
         indexOfItemToEdit = storage.getItem("StudentIndex");
 
@@ -149,13 +152,16 @@ function deleteProfile(){
 
 function goToDepartmentAssignment(){
 
-    let confirmLeavePage = confirm("Are you sure you want to leave this page ?");
-
-    if(confirmLeavePage){
+    if(leavePageConfirmation()){
 
         window.location.href = "department_assignment.html";
 
     }
 
+}
+
+function leavePageConfirmation(){
+
+    return confirm("Are you sure you want to leave this page ?");
 
 }
