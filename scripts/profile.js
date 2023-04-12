@@ -105,7 +105,8 @@ function getProfileDataToEdit(){
     if(storage.getItem("StudentIndex") != null && 
     storage.getItem("StudentIndex") != -1 &&
     (document.referrer.includes("all_students.html") || 
-    document.referrer.includes("department_assignment.html")) // check update not add student request
+    document.referrer.includes("department_assignment.html")) &&
+    window.location.href.includes("id=") // check update not add student request
     ){
 
         indexOfItemToEdit = storage.getItem("StudentIndex");
