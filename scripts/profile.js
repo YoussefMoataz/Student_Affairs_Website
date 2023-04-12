@@ -170,9 +170,10 @@ function goToDepartmentAssignment(){
 
             saveOrUpdateProfile();
 
+            window.location.href = "department_assignment.html";
+            
         }
 
-        window.location.href = "department_assignment.html";
         
     }
     
