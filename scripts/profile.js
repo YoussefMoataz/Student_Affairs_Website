@@ -120,6 +120,8 @@ function getProfileDataToEdit(){
     window.location.href.includes("id=") // check update not add student request
     ){
 
+        document.getElementById("t").innerHTML = "Edit Student";
+
         indexOfItemToEdit = storage.getItem("StudentIndex");
 
         let students = JSON.parse(storage.getItem("StudentsData"));
@@ -145,6 +147,10 @@ function getProfileDataToEdit(){
 
 
         document.getElementById("studentDepartment").addEventListener("click", goToDepartmentAssignment);
+
+    }else{
+
+        document.getElementById("t").innerHTML = "Add Student";
 
     }
 
