@@ -11,7 +11,9 @@ let storage = window.localStorage;
 
 let indexOfItemToEdit = -1;
 
-function formSubmitted(){
+let formStudent = null;
+
+function getFormData(){
 
     let id = document.getElementById("studentID").value;
     let name = document.getElementById("studentName").value;
@@ -37,30 +39,34 @@ function formSubmitted(){
 
     if(id == ""){
         alert("ID can't be empty");
-        return;
+        return false;
     }
 
     if(name == ""){
         alert("Name can't be empty");
-        return;
+        return false;
     }
 
     if(gender == ""){
         alert("Please select a gender");
-        return;
+        return false;
     }
 
     
-    let student = new Student(id, name, dateOfBirth, gpa, level, department, email, phone, gender, status);
+    formStudent = new Student(id, name, dateOfBirth, gpa, level, department, email, phone, gender, status);
 
+    return true;
+
+}
+
+function saveOrUpdateProfile(){
 
     let students = [];
 
-    
     if(storage.getItem("StudentsData") == null){
-        // no students saved
+         // no students saved
 
-        students[0] = JSON.stringify(student);
+        students[0] = JSON.stringify(formStudent);
 
         storage.setItem("StudentsData", JSON.stringify(students));
 
@@ -71,12 +77,12 @@ function formSubmitted(){
         if(indexOfItemToEdit == -1){
 
             // not updating, just adding a profile
-            students[students.length] = JSON.stringify(student);
+            students[students.length] = JSON.stringify(formStudent);
 
         }else{
 
             // updating profile
-            students[indexOfItemToEdit] = JSON.stringify(student);
+            students[indexOfItemToEdit] = JSON.stringify(formStudent);
 
         }
 
@@ -84,18 +90,24 @@ function formSubmitted(){
 
     }
 
-    // done updating or adding, remove the current index
-    storage.removeItem("StudentIndex");
 
+}
 
-    alert("Saved");
+function formSubmitted(){
 
-    // redirect to another page
-    window.location.href = "all_students.html";
-    
-    // alert(JSON.stringify(student));
+    if(getFormData()){
 
-    // alert(id + name + dateOfBirth + gpa + level + department + email + phone + gender + status );
+        saveOrUpdateProfile();
+        
+        // done updating or adding, remove the current index
+        storage.removeItem("StudentIndex");
+
+        alert("Saved");
+
+        // redirect to another page
+        window.location.href = "all_students.html";
+
+    }
 
 }
 
@@ -139,6 +151,33 @@ function getProfileDataToEdit(){
 
 }
 
+
+function goToDepartmentAssignment(){
+    
+    let studentLevel = JSON.parse(JSON.parse(storage.getItem("StudentsData"))[storage.getItem("StudentIndex")]).level;
+    
+    // Check if student's level is 3
+    if (studentLevel != 3) {
+        
+        alert("Error: This action is only applicable for students at level 3.");
+        return;
+        
+    }
+
+    if(confirm("Are you sure you want to save this page before assigning department ?")){
+        
+        if(getFormData()){
+
+            saveOrUpdateProfile();
+
+        }
+
+        window.location.href = "department_assignment.html";
+        
+    }
+    
+}
+
 function deleteProfile(){
 
     if(storage.getItem("StudentsData") == null){
@@ -168,26 +207,10 @@ function deleteProfile(){
 
 }
 
-function goToDepartmentAssignment(){
-
-    if(leavePageConfirmation()){
-
-        window.location.href = "department_assignment.html";
-
-    }
-
-}
-
-function leavePageConfirmation(){
-
-    return confirm("Are you sure you want to leave this page ?");
-
-}
-
 function generateStudentID(){
-
+    
     if(storage.getItem("StudentsData") == null){
-
+        
         let date = new Date();
         let currentYear = date.getFullYear();
 
@@ -203,6 +226,14 @@ function generateStudentID(){
         // generate next id
         document.getElementById("studentID").value = parseInt(lastStudent.id) + 1;
 
+    }
+
+}
+
+function checkLevel(){
+
+    if(document.getElementById("studentLevel").value < 3){
+        document.getElementById("studentDepartment").value = "";
     }
 
 }
