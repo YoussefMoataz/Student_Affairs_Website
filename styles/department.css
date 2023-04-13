@@ -107,6 +107,15 @@ button{
     background-color: #822b03;
     color: white;
 }
+#CancelButton{
+    background-color: var(--secondary-button-background-color);
+    color: var(--secondary-button-text-color);
+}
+#CancelButton:hover{
+    cursor: pointer;
+    background-color: #1b6c91;
+    color: white;
+}
 .formContent{
     text-align: center;
     margin-left: auto;

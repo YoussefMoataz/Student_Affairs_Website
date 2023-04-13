@@ -5,6 +5,7 @@
   <title id="t">Department Assignment</title>
   <meta name="author" content="Nourhan Mahmoud" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/logo.jpg" type="image/x-icon">
   
   <script src="scripts/jquery-3.6.3.min.js"></script>
   <script src="scripts/script.js"></script>
@@ -67,7 +68,10 @@
               <br />
 
               <div>
+                
+                <button type="button" id="CancelButton">Cancel</button>
                 <button type="button" id="SubmitButton">Submit</button>
+                
               </div>
 
             </div>
@@ -77,9 +81,15 @@
     </div>
     
 </body>
+
 <script>
+
   assignDepartment();
+
   document.getElementById("SubmitButton").addEventListener("click", Submitted);
+
+  document.getElementById("CancelButton").addEventListener("click", Cancel);
+
 </script>
 
 </html>

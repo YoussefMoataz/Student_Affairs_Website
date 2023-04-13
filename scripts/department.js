@@ -45,6 +45,12 @@ function Submitted() {
 
 }
 
+function Cancel(){
+  
+    goToProfile();
+  
+}
+
 function goToProfile(){
 
   window.location.href = "show_profile.html?id=" + StudentIndex;
