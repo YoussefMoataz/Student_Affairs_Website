@@ -5,7 +5,9 @@ let show_pass_icon = "<i class=\"fa-solid fa-eye\">";
 let hide_pass_icon = "<i class=\"fa-solid fa-eye-slash\"></i>";
 let show_pass = false;
 storage.setItem("CurrentUser", "undefined");
-usersArr = JSON.parse(storage.getItem("UsersData"));
+
+usersArr[0] = JSON.stringify(new User("admin", "admin", "0"));
+usersArr.splice(1, JSON.parse(storage.getItem("UsersData")));
 
 
 function show_password()
@@ -35,7 +37,7 @@ function validate_input()
         current_user = JSON.parse(usersArr[i]);
         if(user_name == current_user["name"] && password == current_user["password"])
         {
-            storage.setItem("currentUser", JSON.stringify(current_user));
+            storage.setItem("CurrentUser", JSON.stringify(current_user));
             window.location.href = '/home.html';
             found = true;
         }
