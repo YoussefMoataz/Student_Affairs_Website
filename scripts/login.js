@@ -1,8 +1,31 @@
 let error_msg = "Wrong Credentials. Please Try Again.";
 let form = document.getElementById("loginForm");
+let storage = window.localStorage;
 let usersArr = [];
-storage.setItem("currentUser", "undefined");
-usersArr = JSON.parse(storage.getItem("UsersData"));
+let show_pass_icon = "<i class=\"fa-solid fa-eye\">";
+let hide_pass_icon = "<i class=\"fa-solid fa-eye-slash\"></i>";
+let show_pass = false;
+storage.setItem("CurrentUser", "undefined");
+
+usersArr[0] = JSON.stringify(new User("admin", "admin", "0"));
+usersArr.splice(1, JSON.parse(storage.getItem("UsersData")));
+
+
+function show_password()
+{
+    if(show_pass)
+    {
+        document.getElementById("show-pass-icon").innerHTML = hide_pass_icon;
+        show_pass = false;
+        document.getElementById("password").setAttribute("type", "password");
+    }
+    else
+    {
+        document.getElementById("show-pass-icon").innerHTML = show_pass_icon;
+        show_pass = true;
+        document.getElementById("password").setAttribute("type", "text");
+    }
+}
 
 function validate_input()
 {
@@ -15,7 +38,7 @@ function validate_input()
         current_user = JSON.parse(usersArr[i]);
         if(user_name == current_user["name"] && password == current_user["password"])
         {
-            storage.setItem("currentUser", JSON.stringify(current_user));
+            storage.setItem("CurrentUser", JSON.stringify(current_user));
             window.location.href = '/home.html';
             found = true;
         }
