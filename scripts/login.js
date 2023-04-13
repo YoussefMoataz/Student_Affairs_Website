@@ -1,8 +1,28 @@
 let error_msg = "Wrong Credentials. Please Try Again.";
 let form = document.getElementById("loginForm");
 let usersArr = [];
-storage.setItem("currentUser", "undefined");
+let show_pass_icon = "<i class=\"fa-solid fa-eye\">";
+let hide_pass_icon = "<i class=\"fa-solid fa-eye-slash\"></i>";
+let show_pass = false;
+storage.setItem("CurrentUser", "undefined");
 usersArr = JSON.parse(storage.getItem("UsersData"));
+
+
+function show_password()
+{
+    if(show_pass)
+    {
+        document.getElementById("show-pass-icon").innerHTML = hide_pass_icon;
+        show_pass = false;
+        document.getElementById("password").setAttribute("type", "password");
+    }
+    else
+    {
+        document.getElementById("show-pass-icon").innerHTML = show_pass_icon;
+        show_pass = true;
+        document.getElementById("password").setAttribute("type", "text");
+    }
+}
 
 function validate_input()
 {
