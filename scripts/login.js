@@ -8,7 +8,7 @@ let show_pass = false;
 storage.setItem("CurrentUser", "undefined");
 
 usersArr[0] = JSON.stringify(new User("admin", "admin", "0"));
-usersArr.splice(1, JSON.parse(storage.getItem("UsersData")));
+usersArr = usersArr.concat(JSON.parse(storage.getItem("UsersData")));
 
 
 function show_password()
