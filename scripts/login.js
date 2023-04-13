@@ -1,5 +1,6 @@
 let error_msg = "Wrong Credentials. Please Try Again.";
 let form = document.getElementById("loginForm");
+let storage = window.localStorage;
 let usersArr = [];
 let show_pass_icon = "<i class=\"fa-solid fa-eye\">";
 let hide_pass_icon = "<i class=\"fa-solid fa-eye-slash\"></i>";
