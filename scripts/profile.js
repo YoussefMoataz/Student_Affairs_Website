@@ -159,15 +159,15 @@ function getProfileDataToEdit(){
 
 function goToDepartmentAssignment(){
     
-    let studentLevel = JSON.parse(JSON.parse(storage.getItem("StudentsData"))[storage.getItem("StudentIndex")]).level;
+    // let studentLevel = JSON.parse(JSON.parse(storage.getItem("StudentsData"))[storage.getItem("StudentIndex")]).level;
     
-    // Check if student's level is 3
-    if (studentLevel != 3) {
+    // // Check if student's level is 3
+    // if (studentLevel != 3) {
         
-        alert("Error: This action is only applicable for students at level 3.");
-        return;
+    //     alert("Error: This action is only applicable for students at level 3.");
+    //     return;
         
-    }
+    // }
 
     if(confirm("Are you sure you want to save this page before assigning department ?")){
         
