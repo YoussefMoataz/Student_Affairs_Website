@@ -38,9 +38,14 @@ body{
     font-size: 16px;
     position: relative;
     text-align: left;
-    
-
 }
+
+
+.container .sidebar ul li .navMenu{
+    border-bottom: 0;
+}
+
+
 
 
 .container .sidebar ul li .navMenu .menu{
@@ -60,7 +65,7 @@ body{
 .container .sidebar ul li a:hover
 {
     color: black;
-    background-color: var(--navigation-text-color) ;
+    background-color: var(--main-background-color) ;
 
 }
 
