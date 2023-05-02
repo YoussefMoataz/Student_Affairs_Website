@@ -214,7 +214,7 @@ function deleteProfile(){
 
 function generateStudentID(){
     
-    if(storage.getItem("StudentsData") == null){
+    if(storage.getItem("StudentsData") == null || JSON.parse(storage.getItem("StudentsData")).length == 0){
         
         let date = new Date();
         let currentYear = date.getFullYear();
@@ -222,7 +222,6 @@ function generateStudentID(){
         // 20230001 first ID example
         document.getElementById("studentID").value = currentYear.toString() + "0001";
         
-
     }else{
 
         let students = JSON.parse(storage.getItem("StudentsData"));
