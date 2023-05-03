@@ -70,10 +70,10 @@ button{
 
 }
 
-#editButton1,#editButton2{
+#generateButton{
     background-color: var(--secondary-button-background-color);
     color: var(--primary-button-text-color);
-    width: 40px;
+    width: 70px;
     align-content: center;
 }
 
@@ -88,7 +88,7 @@ button{
     color: var(--secondary-button-text-color);
 }
 
-#editButton1:active,#editButton2:active{
+#generateButton:active{
     background-color: #ffbf0020;
     transition: 50ms;
 }

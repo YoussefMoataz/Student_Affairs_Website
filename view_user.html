@@ -24,7 +24,7 @@
             <br>
             <div class="selection">
                 <label for="id">Select ID  </label>
-                <select id="userId" >
+                <select id="userId">
 
                 </select>
                 <br>
@@ -32,19 +32,19 @@
 
                 <div class="data">
                     <label for="name">Name  </label> <br>
-                    <input type="text" id="userName" onkeyup="requiredInput()" readonly>
-                    <button type="button" id="editButton1">Edit</button>
+                    <input type="text" id="userName" onkeyup="requiredInput()" >
+                    <!-- <button type="button" id="editButton1">Edit</button> -->
                     <br>
                     <label for="password">Password  </label> <br>
-                    <input type="password" id="userPassword" onkeyup="requiredInput()" readonly>
-                    <button type="button" id="editButton2">Edit</button>
+                    <input type="password" id="userPassword" onkeyup="requiredInput()">
+                    <button type="button" id="generateButton">generate</button>
                     <br><br>
                     <input id="showPass"type="checkbox"  onclick="myFunction()"> Show Password
 
                 </div>
                 
-        <button type="button" id="deleteButton">Delete</button>
-        <button type="button" id="saveButton">Save</button>
+        <button type="button" id="deleteButton" disabled>Delete</button>
+        <button type="button" id="saveButton" disabled>Save</button>
 
         </div>
 
@@ -52,11 +52,26 @@
         getUserIDs();
 
         // enable editing username and password 
-        document.getElementById('editButton1').onclick = function(){
-        document.getElementById('userName').readOnly = false; }
-
-        document.getElementById('editButton2').onclick = function(){
+        document.getElementById('generateButton').onclick = function(){
         document.getElementById('userPassword').readOnly = false; }
+
+
+        function generateRandomPassword(length) {
+        var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*()"; // List of characters to include in the password
+        var password = "";
+        
+        for (var i = 0; i < length; i++) {
+            var randomIndex = Math.floor(Math.random() * characters.length); // Generate random index to pick a character
+            password += characters[randomIndex]; // Append the randomly picked character to the password
+        } return password;
+    }
+
+        document.getElementById('generateButton').onclick = function generateAndSetPassword() {
+        var generatedPassword = generateRandomPassword(8); // Generate a random password with length 8
+        document.getElementById("userPassword").value = generatedPassword; // Set the generated password as the value of the input field
+    }
+    
+
 
 
         document.getElementById("deleteButton").addEventListener("click", deleteUser);
@@ -73,6 +88,23 @@
 
             }
         }
+
+        const optionSelect = document.getElementById('userId');
+        const deleteButton = document.getElementById('deleteButton');
+        const saveButton = document.getElementById('saveButton');
+      
+        optionSelect.addEventListener('change', function() {
+        if(optionSelect.value !== '') {
+            saveButton.disabled = false;
+            deleteButton.disabled = false;
+
+        } else {
+            saveButton.disabled = true;
+            deleteButton.disabled = true;
+        }
+      });
+
+      
         </script>
     </body>
 </html>
