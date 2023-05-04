@@ -57,6 +57,11 @@ function getFormData(){
         return false;
     }
 
+    if(!validateGPA()){
+        alert("GPA must be between 0 and 4");
+        return false;
+    }
+
     if(!validateBirthDate()){
         alert("Date of birth must be before today");
         return false;
@@ -271,6 +276,31 @@ function validateLevel(){
     }else{
 
         return true;
+
+    }
+
+}
+
+function validateGPA(){
+
+    // can be 4 characters: "1.23"
+    if(document.getElementById("studentGPA").value.length > 4){
+
+        return false;
+
+    }
+
+    if (document.getElementById("studentGPA").value > 0 && document.getElementById("studentGPA").value <= 4){
+
+        return true;
+
+    }else if(document.getElementById("studentGPA").value == 0 && document.getElementById("studentLevel").value == 1){
+
+        return true;
+
+    }else{
+        
+        return false;
 
     }
 
