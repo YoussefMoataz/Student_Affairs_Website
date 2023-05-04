@@ -284,7 +284,7 @@ function validateLevel(){
 function validateGPA(){
 
     // can be 4 characters: "1.23"
-    if(document.getElementById("studentGPA").value.length > 4){
+    if(document.getElementById("studentGPA").value.length > 4 || document.getElementById("studentGPA").value.length == 0){
 
         return false;
 
