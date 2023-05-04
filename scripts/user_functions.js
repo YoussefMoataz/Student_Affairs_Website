@@ -104,9 +104,7 @@ function deleteUser(){
         let confirmation = confirm("Are you sure you want to delete this user?");
 
         if(confirmation){
-            // if(users.length == 0){
-            //     localStorage.clear();
-            // }
+            
             var UserIndex = document.getElementById("userId").selectedIndex;
 
             let users = JSON.parse(storage.getItem("UsersData"));
@@ -119,6 +117,8 @@ function deleteUser(){
             alert("User Deleted.");
 
             location.reload();
+            window.location.href = "home.html";
+
         }
     
 

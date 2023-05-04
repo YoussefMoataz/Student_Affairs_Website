@@ -37,15 +37,18 @@
                     <br>
                     <label for="password">Password  </label> <br>
                     <input type="password" id="userPassword" onkeyup="requiredInput()">
+                    <br>
                     <button type="button" id="generateButton">generate</button>
-                    <br><br>
+
                     <input id="showPass"type="checkbox"  onclick="myFunction()"> Show Password
 
                 </div>
-                
-        <button type="button" id="deleteButton" disabled>Delete</button>
-        <button type="button" id="saveButton" disabled>Save</button>
+        <div>
+            <button type="button" id="deleteButton" disabled>Delete</button>
+            <button type="button" id="saveButton" disabled>Save</button>
 
+        </div>        
+        
         </div>
 
         <script>
@@ -75,7 +78,6 @@
 
 
         document.getElementById("deleteButton").addEventListener("click", deleteUser);
-        document.getElementById("deleteButton").addEventListener("click", redirect);
 
 
 
