@@ -67,6 +67,11 @@ function getFormData(){
         return false;
     }
 
+    if(!validatePhone()){
+        alert("Please enter a valid phone number");
+        return false;
+    }
+
     
     formStudent = new Student(id, name, dateOfBirth, gpa, level, department, email, phone, gender, status);
 
@@ -279,8 +284,16 @@ function validateBirthDate(){
 
 function validateEmail(){
 
-    const emailRegex = /[0-z]+[@][a-z]+\.[a-z]{2,3}/;
+    const emailRegex = /^[0-z]+[@][a-z]+(\.[a-z]{2,4})+$/;
 
     return emailRegex.test(document.getElementById("studentEmail").value);
+
+}
+
+function validatePhone(){
+
+    const phoneRegex = /^[+]?[0-9]{11,12}$/;
+
+    return phoneRegex.test(document.getElementById("studentPhone").value);
 
 }
