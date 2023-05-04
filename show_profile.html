@@ -54,7 +54,7 @@
 
                 <div>
                     <label for="studentLevel">Student Level</label>
-                    <input type="number" id="studentLevel" name="studentLevel" min="1" max="4" value="1"/>
+                    <input type="number" id="studentLevel" name="studentLevel" min="1" max="4" value="1" maxlength="1"/>
                 </div>
 
                 <div>
@@ -111,7 +111,7 @@
 
     document.getElementById("deleteButton").addEventListener("click", deleteProfile);
 
-    document.getElementById("studentLevel").addEventListener("change", checkLevel);
+    document.getElementById("studentLevel").addEventListener("change", checkLevelAndUpdateDepartment);
 
 </script>
 

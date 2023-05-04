@@ -52,6 +52,21 @@ function getFormData(){
         return false;
     }
 
+    if(!validateLevel()){
+        alert("Level must be between 1 and 4");
+        return false;
+    }
+
+    if(!validateBirthDate()){
+        alert("Date of birth must be before today");
+        return false;
+    }
+
+    if(!validateEmail()){
+        alert("Please enter a valid email address");
+        return false;
+    }
+
     
     formStudent = new Student(id, name, dateOfBirth, gpa, level, department, email, phone, gender, status);
 
@@ -234,10 +249,38 @@ function generateStudentID(){
 
 }
 
-function checkLevel(){
+function checkLevelAndUpdateDepartment(){
 
     if(document.getElementById("studentLevel").value < 3){
         document.getElementById("studentDepartment").value = "";
     }
+
+}
+
+function validateLevel(){
+
+    if(document.getElementById("studentLevel").value < 0 || document.getElementById("studentLevel").value > 4){
+
+        return false;
+
+    }else{
+
+        return true;
+
+    }
+
+}
+
+function validateBirthDate(){
+
+    return new Date(document.getElementById("studentBirthDate").value) < new Date(new Date().toDateString());
+
+}
+
+function validateEmail(){
+
+    const emailRegex = /[0-z]+[@][a-z]+\.[a-z]{2,3}/;
+
+    return emailRegex.test(document.getElementById("studentEmail").value);
 
 }
