@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title id="t">Student</title>
+    <meta name="author" content="Youssef Moataz">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.jpg" type="image/x-icon">
+
+    <script src="scripts/jquery-3.6.3.min.js"></script>
+    <script src="{% static 'scripts/script.js' %}"></script>
+    <script src="{% static 'scripts/profile.js' %}"></script>
+    <script src="scripts/student.js"></script>
+    
+    <script>
+        loadHeader("#headerDiv");
+    </script>
+    
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/profile.css' %}">
+
+</head>
+
+<body>
+
+    <div id="headerDiv"></div>
+   
+    <div class="formContainer">
+        <div class="formBox">
+            <form id="profileForm">
+
+                <div>
+                    <label for="studentID">Student ID</label>
+                    <input type="number" id="studentID" name="studentID" min="1" disabled/>
+                    <!-- <input type="number" id="studentID" name="studentID" required/> -->
+                </div>
+
+                <div>
+                    <label for="studentName">Student Name</label>
+                    <input type="text" id="studentName" name="studentName" />
+                    <!-- <input type="text" id="studentName" name="studentName" required/> -->
+                </div>
+
+                <div>
+                    <label for="studentBirthDate">Student Date of Birth</label>
+                    <input type="date" id="studentBirthDate" name="studentBirthDate" />
+                </div>
+
+                <div>
+                    <label for="studentGPA">Student GPA</label>
+                    <input type="number" id="studentGPA" name="studentGPA" step="0.01" min="0" max="4"/>
+                    <!-- <input type="number" id="studentGPA" name="studentGPA" step="0.01" required/> -->
+                </div>
+
+                <div>
+                    <label for="studentLevel">Student Level</label>
+                    <input type="number" id="studentLevel" name="studentLevel" min="1" max="4" value="1" maxlength="1"/>
+                </div>
+
+                <div>
+                    <label for="studentDepartment">Student Department</label> 
+                    <input type="button" id="studentDepartment" name="studentDepartment" />
+                </div>
+
+                <div>
+                    <label for="studentEmail">Student Email</label>
+                    <input type="email" id="studentEmail" name="studentEmail" />
+                </div>
+
+                <div>
+                    <label for="studentPhone">Student Phone</label>
+                    <input type="tel" id="studentPhone" name="studentPhone" />
+                    <!-- <input type="tel" id="studentPhone" name="studentPhone" required/> -->
+                </div>
+
+                <div>
+                    <label>Gender</label><br>
+                    <input type="radio" id="studentGenderMale" name="studentGender" value="1"/>
+                    <label for="studentGenderMale">Male</label>
+                    <input type="radio" id="studentGenderFemale" name="studentGender" value="0"/>
+                    <label for="studentGenderFemale">Female</label>
+                </div>
+
+                <div>
+                    <label>Status</label><br>
+                    <input type="checkbox" id="studentStatus" name="studentStatus" value="active"/>
+                    <label for="studentStatus">Active</label>
+                </div>
+
+                <!-- to fill left grid item -->
+                <div></div>
+
+                <div>
+                    <button type="button" id="deleteButton">Delete</button>
+                    <button type="button" id="saveButton">Add</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    generateStudentID();
+    
+    getProfileDataToEdit();
+
+    document.getElementById("saveButton").addEventListener("click", formSubmitted);
+
+    document.getElementById("deleteButton").addEventListener("click", deleteProfile);
+
+    document.getElementById("studentLevel").addEventListener("change", checkLevelAndUpdateDepartment);
+
+</script>
+
+</html>
