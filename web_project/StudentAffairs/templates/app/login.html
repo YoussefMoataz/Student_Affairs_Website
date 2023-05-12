@@ -12,31 +12,36 @@
         <script src="scripts/user.js"></script>
     </head>
     <body>
-        <div class="login-form">
-            <p class="login-text">Log in</p>
-            <p id="error-message" class="error"></p>
-            <form id="loginForm" autocomplete="off">
-                <div class="user-name">
-                    <div class="icon" id="user-icon">
-                        <i class="fa-solid fa-user" id="user-icon"></i>
-                    </div>
-                    <input type="text" name="userName" id="userName" placeholder="User Name" required>
-                </div>
-                <div class="password">
-                    <div class="icon" id="pass-icon">
-                        <i class="fa-solid fa-lock" id="password-icon"></i>
-                    </div>
-                    <div class="show-password">
-                        <button type="button" class="show-password-btn" id="show-pass-icon" onclick="show_password()"><i class="fa-solid fa-eye-slash"></i></i></button>
-                    </div>
-                    <input type="password" name="password" id="password" placeholder="Password" required>    
-                </div>
-                <div> 
-                    <!-- <button class="submit-btn" onclick="validate_input()">Log in</button> -->
-                    <input type="button" id="submit-btn" class="submit-btn", onclick="validate_input()" value="Log in">
-                </div>
-            </form>
-        </div>
+       <div class="container">
+           <div class="login-form">
+               <!-- <p class="login-text">Log in</p> -->
+               <div class="logo">
+                   <img src="images/logo.jpg" alt="Student Affairs Logo">
+               </div>
+               <p id="error-message" class="error"></p>
+               <form id="loginForm" autocomplete="off">
+                   <div class="user-name">
+                       <div class="icon" id="user-icon">
+                           <i class="fa-solid fa-user" id="user-icon"></i>
+                       </div>
+                       <input type="text" name="userName" id="userName" placeholder="User Name" required>
+                   </div>
+                   <div class="password">
+                       <div class="icon" id="pass-icon">
+                           <i class="fa-solid fa-lock" id="password-icon"></i>
+                       </div>
+                       <div class="show-password">
+                           <button type="button" class="show-password-btn" id="show-pass-icon" onclick="show_password()"><i class="fa-solid fa-eye-slash"></i></i></button>
+                       </div>
+                       <input type="password" name="password" id="password" placeholder="Password" required>    
+                   </div>
+                   <div> 
+                       <!-- <button class="submit-btn" onclick="validate_input()">Log in</button> -->
+                       <input type="button" id="submit-btn" class="submit-btn", onclick="validate_input()" value="Log in">
+                   </div>
+               </form>
+           </div>
+       </div>
         <script src="scripts/login.js"></script>
     </body>
 </html>
