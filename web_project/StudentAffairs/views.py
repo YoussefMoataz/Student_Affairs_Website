@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse
 
@@ -64,3 +64,26 @@ def show_profile(request, st_id):
     ctx = {"stud" : student}
 
     return render(request,'app/show_profile.html', context=ctx)
+
+
+def update_profile(request, st_id):
+    
+    student = Student.objects.filter(studentID=st_id)
+
+    student.update(studentName=request.POST['studentName'])
+    student.update(studentBirthDate=request.POST['studentBirthDate'])
+    student.update(studentGPA=request.POST['studentGPA'])
+    student.update(studentLevel=request.POST['studentLevel'])
+    student.update(studentDepartment=request.POST.get('studentDepartment', ""))
+    student.update(studentEmail=request.POST['studentEmail'])
+    student.update(studentPhone=request.POST['studentPhone'])
+    student.update(studentGender=request.POST['studentGender'])
+    student.update(studentStatus=request.POST.get('studentStatus', "0"))
+
+
+    # student.save()
+
+    # print(student.name, student.email)
+    # print(request.POST)
+
+    return redirect(add_profile)
