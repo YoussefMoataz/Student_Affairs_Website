@@ -28,7 +28,7 @@ def add_profile(request):
         student.email = request.POST['studentEmail']
         student.phone = request.POST['studentPhone']
         student.gender = request.POST['studentGender']
-        student.status = request.POST.get('studentStatus', "inactive")
+        student.status = request.POST.get('studentStatus', "0")
 
         # print(student.id)
         # print(student.name)
@@ -51,6 +51,16 @@ def add_profile(request):
         if stud_form.is_valid():
             # print("done")
             stud_form.save()
+            return HttpResponse("Thank you")
     
     ctx = {"lastID": last_id}
+    return render(request,'app/show_profile.html', context=ctx)
+
+
+def show_profile(request, st_id):
+    
+    student = Student.objects.get(studentID=st_id)
+    
+    ctx = {"stud" : student}
+
     return render(request,'app/show_profile.html', context=ctx)

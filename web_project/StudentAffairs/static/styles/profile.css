@@ -104,5 +104,4 @@ button{
 #deleteButton{
     background-color: var(--secondary-button-background-color);
     color: var(--secondary-button-text-color);
-    display: none;
 }

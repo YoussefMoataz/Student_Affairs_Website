@@ -11,7 +11,7 @@ class Student(models.Model):
     email = models.CharField(name="studentEmail", max_length=100)
     phone = models.CharField(name="studentPhone", max_length=13)
     gender = models.CharField(name="studentGender", max_length=1)
-    status = models.CharField(name="studentStatus", max_length=8, blank=True, default="active")
+    status = models.CharField(name="studentStatus", max_length=1, blank=True, default="0")
 
     def __str__(self):
        return str(self.id)
