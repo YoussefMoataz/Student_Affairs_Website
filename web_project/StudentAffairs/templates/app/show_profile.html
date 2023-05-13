@@ -34,7 +34,7 @@
                 {% csrf_token %}
                 <div>
                     <label for="studentID">Student ID</label>
-                    <input type="number" id="studentID" name="studentID" min="1" readonly/>
+                    <input type="number" id="studentID" name="studentID" min="1" value="{{ submittedForm.studentID.value }}" readonly/>
                 </div>
 
                 <div>
