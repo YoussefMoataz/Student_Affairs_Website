@@ -87,3 +87,14 @@ def update_profile(request, st_id):
     # print(request.POST)
 
     return redirect(add_profile)
+
+def delete_profile(request, st_id):
+    
+    Student.objects.get(studentID=st_id).delete()
+
+    # student.save()
+
+    # print(student.name, student.email)
+    # print(request.POST)
+
+    return redirect(add_profile)
