@@ -6,4 +6,6 @@ class StudentForm(ModelForm):
 
     class Meta:
         model = Student
-        fields = ['id', 'name', 'dateOfBirth', 'gpa', 'level', 'department', 'email', 'phone', 'gender', 'status']
+        fields = ['studentID', 'studentName', 'studentBirthDate', 
+                  'studentGPA', 'studentLevel', 'studentDepartment', 
+                  'studentEmail', 'studentPhone', 'studentGender', 'studentStatus']

@@ -3,9 +3,54 @@ from django.template import loader
 from django.http import HttpResponse
 
 from .forms import StudentForm
+from .models import Student
 
 
-def show_profile(request):
+def add_profile(request):
     stud_form = StudentForm()
-    mapping = {"form" : stud_form}
-    return render(request,'app/show_profile.html', context=mapping)
+
+    last_id = len(Student.objects.all())
+
+    print(last_id)
+
+    if request.method == "POST":
+        student = Student()
+        
+        # if stud_form.is_valid():
+        #     stud_form.save()
+
+        student.id = request.POST['studentID']
+        student.name = request.POST['studentName']
+        student.dateOfBirth = request.POST['studentBirthDate']
+        student.gpa = request.POST['studentGPA']
+        student.level = request.POST['studentLevel']
+        student.department = request.POST.get('studentDepartment', "")
+        student.email = request.POST['studentEmail']
+        student.phone = request.POST['studentPhone']
+        student.gender = request.POST['studentGender']
+        student.status = request.POST.get('studentStatus', "inactive")
+
+        # print(student.id)
+        # print(student.name)
+        # print(student.dateOfBirth)
+        # print(student.gpa)
+        # print(student.level)
+        # print(student.department)
+        # print(student.email)
+        # print(student.phone)
+        # print(student.gender)
+        # print(student.status)
+
+        # stud_form = StudentForm(request.POST)
+        # print(stud_form)
+
+        # stud_form = StudentForm(request.POST, instance=student)
+
+        stud_form = StudentForm(request.POST)
+        print(stud_form)
+        if stud_form.is_valid():
+            # print("done")
+            stud_form.save()
+    
+    ctx = {"lastID": last_id}
+    return render(request,'app/show_profile.html', context=ctx)
