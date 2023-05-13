@@ -9,7 +9,7 @@ from .models import Student
 def add_profile(request):
     stud_form = StudentForm()
 
-    last_id = len(Student.objects.all())
+    last_id = Student.objects.order_by('-pk')[0]
 
     # print(last_id)
 
