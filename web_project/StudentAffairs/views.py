@@ -15,6 +15,8 @@ def add_profile(request):
         last_id = Student.objects.order_by('-pk')[0]
 
     # print(last_id)
+    ctx = {"lastID": last_id}
+
 
     if request.method == "POST":
         student = Student()
@@ -55,8 +57,10 @@ def add_profile(request):
             # print("done")
             stud_form.save()
             return HttpResponse("Thank you")
+        ctx["submittedForm"] = stud_form
+        return render(request,'app/show_profile.html', context=ctx)
     
-    ctx = {"lastID": last_id}
+    
     return render(request,'app/show_profile.html', context=ctx)
 
 
