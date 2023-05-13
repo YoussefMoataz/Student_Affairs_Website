@@ -11,7 +11,7 @@ def add_profile(request):
 
     last_id = len(Student.objects.all())
 
-    print(last_id)
+    # print(last_id)
 
     if request.method == "POST":
         student = Student()
@@ -47,7 +47,7 @@ def add_profile(request):
         # stud_form = StudentForm(request.POST, instance=student)
 
         stud_form = StudentForm(request.POST)
-        print(stud_form)
+        # print(stud_form)
         if stud_form.is_valid():
             # print("done")
             stud_form.save()
