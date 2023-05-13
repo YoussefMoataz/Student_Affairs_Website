@@ -1,13 +1,8 @@
 from django.db import models
 
-Male = 1
-Female = 0
-STATUS_CHOICES = (
-    (Male, 'Male'),
-    (Female, 'Female'),
-)
 class Student(models.Model):
-    id = models.CharField(name="studentID", max_length=8)
+    id = models.IntegerField(primary_key=True)
+    sid = models.CharField(name="studentID", max_length=8)
     name = models.CharField(name="studentName", max_length=100)
     dateOfBirth = models.CharField(name="studentBirthDate", max_length=50)
     gpa = models.CharField(name="studentGPA", max_length=5)

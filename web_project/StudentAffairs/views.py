@@ -19,7 +19,7 @@ def add_profile(request):
         # if stud_form.is_valid():
         #     stud_form.save()
 
-        student.id = request.POST['studentID']
+        student.sid = request.POST['studentID']
         student.name = request.POST['studentName']
         student.dateOfBirth = request.POST['studentBirthDate']
         student.gpa = request.POST['studentGPA']
