@@ -237,6 +237,27 @@ function deleteProfile(){
 
 }
 
+function generateStudentID(){
+    
+    if(storage.getItem("StudentsData") == null || JSON.parse(storage.getItem("StudentsData")).length == 0){
+        
+        let date = new Date();
+        let currentYear = date.getFullYear();
+
+        // 20230001 first ID example
+        document.getElementById("studentID").value = currentYear.toString() + "0001";
+        
+    }else{
+
+        let students = JSON.parse(storage.getItem("StudentsData"));
+        let lastStudent = JSON.parse(students[students.length - 1]);
+
+        // generate next id
+        document.getElementById("studentID").value = parseInt(lastStudent.id) + 1;
+
+    }
+
+}
 
 function checkLevelAndUpdateDepartment(){
 
