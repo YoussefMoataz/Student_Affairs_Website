@@ -28,18 +28,16 @@
    
     <div class="formContainer">
         <div class="formBox">
-            <form id="profileForm">
+            <!-- <form id="profileForm">
 
                 <div>
                     <label for="studentID">Student ID</label>
                     <input type="number" id="studentID" name="studentID" min="1" disabled/>
-                    <!-- <input type="number" id="studentID" name="studentID" required/> -->
                 </div>
 
                 <div>
                     <label for="studentName">Student Name</label>
                     <input type="text" id="studentName" name="studentName" />
-                    <!-- <input type="text" id="studentName" name="studentName" required/> -->
                 </div>
 
                 <div>
@@ -50,7 +48,6 @@
                 <div>
                     <label for="studentGPA">Student GPA</label>
                     <input type="number" id="studentGPA" name="studentGPA" step="0.01" min="0" max="4"/>
-                    <!-- <input type="number" id="studentGPA" name="studentGPA" step="0.01" required/> -->
                 </div>
 
                 <div>
@@ -71,7 +68,6 @@
                 <div>
                     <label for="studentPhone">Student Phone</label>
                     <input type="tel" id="studentPhone" name="studentPhone" />
-                    <!-- <input type="tel" id="studentPhone" name="studentPhone" required/> -->
                 </div>
 
                 <div>
@@ -88,13 +84,18 @@
                     <label for="studentStatus">Active</label>
                 </div>
 
-                <!-- to fill left grid item -->
                 <div></div>
 
                 <div>
                     <button type="button" id="deleteButton">Delete</button>
                     <button type="button" id="saveButton">Add</button>
                 </div>
+
+            </form> -->
+
+            <form id="profileForm">
+
+                {{ form.as_div }}
 
             </form>
         </div>
