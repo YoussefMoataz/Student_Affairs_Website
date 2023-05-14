@@ -1,3 +1,14 @@
+
+
+// $(document).ready(function(){
+//     $(document.body).on("click",'#tableBody tr',function(){
+//         // window.location.href="app/profile/"+$(this).attr("id");
+//         let id=$(this).attr("id");
+//         window.location.href="{% url 'ShowProfile' 20230001 %}";
+//         // console.log($(this).attr("id"));
+//         // alert($(this).attr("id"));
+//     })
+// })
 //search data
 $(document).ready(function() {
     $("#searchInput").on("keyup", function() {
