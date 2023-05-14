@@ -6,6 +6,10 @@ from .forms import StudentForm
 from .models import Student
 
 
+def index(request):
+    return render(request, "app/index.html")
+
+
 def add_profile(request):
     stud_form = StudentForm()
 
@@ -101,6 +105,7 @@ def update_profile(request, st_id):
         ctx = {"submittedForm" : StudentForm(request.POST)}
         return render(request,'app/show_profile.html', context=ctx)
     return render(request,'app/show_profile.html')
+
 
 def delete_profile(request, st_id):
     
