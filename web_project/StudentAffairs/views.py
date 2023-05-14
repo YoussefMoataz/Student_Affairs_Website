@@ -60,7 +60,7 @@ def add_profile(request):
         if stud_form.is_valid():
             # print("done")
             stud_form.save()
-            return HttpResponse("Thank you")
+            return redirect(all_students)
         ctx["submittedForm"] = stud_form
         return render(request,'app/show_profile.html', context=ctx)
     
@@ -101,7 +101,7 @@ def update_profile(request, st_id):
             # print(student.name, student.email)
             # print(request.POST)
 
-            return redirect(add_profile)
+            return redirect(all_students)
         ctx = {"submittedForm" : StudentForm(request.POST)}
         return render(request,'app/show_profile.html', context=ctx)
     return render(request,'app/show_profile.html')
@@ -116,7 +116,7 @@ def delete_profile(request, st_id):
     # print(student.name, student.email)
     # print(request.POST)
 
-    return redirect(add_profile)
+    return redirect(all_students)
 
 def all_students(request):
     students = Student.objects.all()
