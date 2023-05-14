@@ -117,3 +117,8 @@ def delete_profile(request, st_id):
     # print(request.POST)
 
     return redirect(add_profile)
+
+def all_students(request):
+    students = Student.objects.all()
+    
+    return render(request,'app/all_students.html',{"students":students})

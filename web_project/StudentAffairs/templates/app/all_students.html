@@ -1,17 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <title id="t">View All</title>
         <meta name="author" content="Hassan Magdi">
-        <script src="scripts/jquery-3.6.3.min.js"></script>
-        <script src="scripts/script.js"></script>
+        <script src="{% static 'scripts/jquery-3.6.3.min.js' %}"></script>
+        <script src="{% static 'scripts/script.js' %}"></script>
+        <script src="{% static 'scripts/viewAll.js' %}"></script>
         <link  rel = "icon" href = "images/logo.jpg"  type = "image/x-icon">
-        <script src="scripts/viewAll.js"></script>
         <script>
             loadHeader("#headerDiv");
         </script>
-        <link rel="stylesheet" href="styles/style.css">
-        <link rel="stylesheet" href="styles/viewAll.css">
+        <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/viewAll.css' %}">
         
         
     </head>
@@ -40,45 +41,38 @@
                 </th>
             </thead> 
             <div class ="table-content">
+            {% csrf_token %}
             <tbody id="tableBody">
-                
+                {% for student in students %}
+                    {% if student.studentStatus == "0" %}
+                        <tr class="inactive" id="{{student.studentID}}">
+                            <td>{{student.studentID}}</td>
+                            <td>{{student.studentName}}</td>
+                            <td><P style="color:red;">Inactive</p></td>
+                        </tr>        
+                    {% else %}
+                        <tr class="Active" id="{{student.studentID}}">
+                            <td>{{student.studentID}}</td>
+                            <td>{{student.studentName}}</td>
+                            <td><P style="color:green;">Active</p></td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
             </tbody>
             </div>
             </table>
-        <!-- load data -->
         <script>
-            let storage = window.localStorage;
-
-            let students = JSON.parse(storage.getItem("StudentsData"));
-            let i=0;
-            let checkbox = document.querySelector('input[name="active"]');
-            students.forEach(function(studentJ) {
-                let student = JSON.parse(studentJ);
-                
-                if(student.status ){
-                    $('tbody').append(`<tr class="Active" id="${i}">
-                    <td>${student.id}</td>
-                    <td>${student.name}</td>
-                    <td><P style="color:green;">Active</p></td>
-                    </tr>`);
-                    i++;
-                }
-                else{
-                $('tbody').append(`<tr class="inactive" id="${i}">
-                    <td>${student.id}</td>
-                    <td>${student.name}</td>
-                    <td><P style="color:red;">Inactive</p></td>
-                    </tr>`);
-                    i++;
-                }
-            });
-            $('tbody').on('click', 'tr', function() {
-            let id = $(this).attr('id');
-            window.localStorage.setItem("StudentIndex",id)
-            window.location.href = 'show_profile.html?id=' + id;;
-        });
-            
+            $(document).ready(function(){
+    $(document.body).on("click",'#tableBody tr',function(){
+        // window.location.href="app/profile/"+$(this).attr("id");
+        let id=$(this).attr("id");
+        // console.log(id);
+        // window.location.href="{% url 'ShowProfile' 20230001 %}";
+        // alert($(this).attr("id"));
+    })
+})
         </script>
+        
     </body>
     </div>
     
