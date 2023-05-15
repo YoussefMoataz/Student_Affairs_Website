@@ -159,12 +159,6 @@
                 <script>
                     // set the gender and status values
                     document.getElementsByName("studentGender")[1-"{{ stud.studentGender }}"].checked = true;
-
-                    document.getElementById("deleteButton").addEventListener("click", function(){ 
-                        if(confirm("Are you sure you want to delete ?")){
-                            location.href = "delete/" + "{{ stud.studentID }}";
-                        }
-                     });
                     
                     if("{{ stud.studentStatus }}" == "1"){
                         document.getElementById("studentStatus").checked = true;
@@ -192,6 +186,14 @@
                         }
 
                     }
+
+                    document.getElementById("deleteButton").addEventListener("click", function(){ 
+                        
+                        if(confirm("Are you sure you want to delete ?")){
+                            location.href = "delete/" + "{{ stud.studentID }}";
+                        }
+                        
+                    });
 
                 </script>
             </form>
