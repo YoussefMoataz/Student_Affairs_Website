@@ -76,23 +76,6 @@ function getFormData(){
 
 }
 
-function goToDepartmentAssignment(){
-    
-
-    if(confirm("Are you sure you want to save this page before assigning department ?")){
-        
-        if(getFormData()){
-
-            saveOrUpdateProfile();
-
-            window.location.href = "department_assignment.html";
-
-        }
-
-    }
-    
-}
-
 function validateLevel(){
 
     if(document.getElementById("studentLevel").value < 0 || document.getElementById("studentLevel").value > 4){
