@@ -118,6 +118,34 @@ def delete_profile(request, st_id):
 
     return redirect(all_students)
 
+
+def department_assign(request, st_id):
+    
+    student = Student.objects.filter(studentID=st_id)
+
+    if request.method == "POST":
+
+        if StudentForm(request.POST).is_valid():
+
+            student.update(studentName=request.POST['studentName'])
+            student.update(studentBirthDate=request.POST['studentBirthDate'])
+            student.update(studentGPA=request.POST['studentGPA'])
+            student.update(studentLevel=request.POST['studentLevel'])
+            student.update(studentDepartment=request.POST.get('studentDepartment', ""))
+            student.update(studentEmail=request.POST['studentEmail'])
+            student.update(studentPhone=request.POST['studentPhone'])
+            student.update(studentGender=request.POST['studentGender'])
+            student.update(studentStatus=request.POST.get('studentStatus', "0"))
+
+
+            return render(request,'app/department_assignment.html')
+        
+        ctx = {"submittedForm" : StudentForm(request.POST)}
+        return render(request,'app/show_profile.html', context=ctx)
+    
+    return render(request,'app/show_profile.html')
+
+
 def all_students(request):
     students = Student.objects.all()
     
