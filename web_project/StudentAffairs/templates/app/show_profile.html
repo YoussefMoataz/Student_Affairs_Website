@@ -13,9 +13,6 @@
     <script src="{% static 'scripts/profile.js' %}"></script>
     <script src="scripts/student.js"></script>
     
-    <script>
-        loadHeader("#headerDiv");
-    </script>
     
     <link rel="stylesheet" href="{% static 'styles/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'styles/profile.css' %}">
@@ -24,7 +21,7 @@
 
 <body>
 
-    <div id="headerDiv"></div>
+    {% include "header.html" %}
    
     <div class="formContainer">
         <div class="formBox">
