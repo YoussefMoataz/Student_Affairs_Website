@@ -19,7 +19,7 @@ def add_profile(request):
         last_id = Student.objects.order_by('-pk')[0]
 
     # print(last_id)
-    ctx = {"lastID": last_id}
+    ctx = {"lastID": last_id} 
 
 
     if request.method == "POST":

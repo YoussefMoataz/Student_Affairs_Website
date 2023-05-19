@@ -2,23 +2,25 @@
 <html>
     <head>
         <title id = "t">View User</title>
-        <link  rel = "icon" href = "images/logo.jpg"  type = "image/x-icon">
+        <link rel = "icon" href = "{% static 'images/logo.jpg' %}" type = "image/x-icon">
 
         <meta name = "author" content = "Sara Walid">
 
-        <script src="scripts/jquery-3.6.3.min.js"></script>
-        <script src="scripts/script.js"></script>
-        <script src="scripts/user.js"></script>
-        <script src="scripts/user_functions.js"></script>
-        <script> loadHeader("#headerDiv");</script>
+        <script src = "{% 'scripts/jquery-3.6.3.min.js'% }"></script>
+        <script src = "{% 'scripts/script.js' %}"></script>
+        <script src = "{% 'scripts/user.js' %}"></script>
+        <script src = "{% 'scripts/user_functions.js' %}"></script>
 
-        <link rel="stylesheet" href="styles/style.css">
-        <link rel="stylesheet" href="styles/user_pages.css">
+        <link rel = "stylesheet" type = "text/css" href = "{% 'styles/style.css' %}">
+        <link rel = "stylesheet" type = "text/css" href = "{% 'styles/user_pages.css' %}">
+
     </head>
 
 
     <body>
-        <div id="headerDiv"></div>
+
+        {% include "header.html" %}
+
         <div class="content">
             <span class="icon"><i class="fa-solid fa-user-pen fa-2xl"></i></span> <br>
             <br>

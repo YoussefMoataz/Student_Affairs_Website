@@ -15,3 +15,14 @@ class Student(models.Model):
 
     def __str__(self):
        return str(self.id)
+    
+
+
+    class User(models.Model):
+        Id = models.IntegerField(primary_key = True)
+        userId = models.CharField(name = "userId", max_length = 8)
+        userName = models.CharField(name = "userName", max_length = 15)
+        userPassword = models.CharField(name = "password", max_length = 8)
+    
+    def __str__(self):
+       return str(self.id)
