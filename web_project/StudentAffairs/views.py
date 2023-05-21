@@ -151,8 +151,6 @@ def all_students(request):
     
     return render(request,'app/all_students.html',{"students":students})
 
-
-
 def add_user(request):
     form = UserForm()
     last_id = 0
@@ -216,3 +214,6 @@ def delete_user(request, deletedId):
     
     Student.objects.get( userId = deletedId).delete()
     return render(request, 'home.html', {'message': 'User deleted successfully'})
+
+def home(request):
+    return render(request,'app/home.html')

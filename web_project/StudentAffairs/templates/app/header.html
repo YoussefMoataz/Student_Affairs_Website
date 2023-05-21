@@ -1,7 +1,8 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-   <link rel="stylesheet" href="styles/header.css">
-   <link rel="stylesheet" href="styles/all.css">
+   <link rel="stylesheet" href="{% static 'styles/header.css' %}">
+   <link rel="stylesheet" href="{% static 'styles/all.css' %}">
 
 
     <body>
@@ -33,12 +34,12 @@
 
                         
                     </a></li>
-                    <li id="profilePage"> <a href="show_profile.html">
+                    <li id="profilePage"> <a href="{% url 'AddProfile' %}">
                         <span class="icon"><i class="fas fa-user-plus"></i></span>
                         <span class item> Add Student</span>
 
                     </a></li>
-                    <li><a id="all_students" href="all_students.html">
+                    <li><a id="all_students" href="{% url 'AllStudents' %}">
                         <span class="icon"><i class="fas fa-clipboard"></i></span>
 
                         <span class item> View All Students</span>
@@ -68,7 +69,7 @@
             </div>
        </div>
 
-        <script src="scripts/header.js"></script>
+        <script src="{% static 'scripts/header.js' %}"></script>
 
     </body>
     
