@@ -1,14 +1,28 @@
+function getData(){
+    var name = document.getElementById('userName').value;
+    var id = document.getElementById('userId').value;
+    var password = document.getElementById('userPassword').value;
+
+
+    if(name = " "){
+        alert("You entered an empty name!!");
+        return false;
+    }
+
+    return true;
+}
+
 
 
 // function to show password
 
 function myFunction() {
     var x = document.getElementById("userPassword");
-        if (x.type === "password") {
+        if (x.type === "userPassword") {
             x.type = "text"; 
         } 
         else {
-            x.type = "password"; 
+            x.type = "userPassword"; 
         }
     }
 
@@ -20,10 +34,7 @@ let storage = window.localStorage;
 
 
 function store(){ 
-    var name = document.getElementById('userName').value;
-    var id = document.getElementById('id').value;
-    var password = document.getElementById('password').value;
-   
+    
     let user = new User(name,password,id);
     let users = [];
 
@@ -126,50 +137,7 @@ function deleteUser(){
 }
 
 
-// function to auto generate random user password 
-function generateRandomPassword(length) {
-    var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*()"; // List of characters to include in the password
-    var password = "";
-    
-    for (var i = 0; i < length; i++) {
-        var randomIndex = Math.floor(Math.random() * characters.length); // Generate random index to pick a character
-        password += characters[randomIndex]; // Append the randomly picked character to the password
-    } return password;
-}
 
-function generateAndSetPassword() {
-    var generatedPassword = generateRandomPassword(8); // Generate a random password with length 8
-    document.getElementById("password").value = generatedPassword; // Set the generated password as the value of the input field
-}
-
-
-// function to generate user id initialy 100
-
-var counter = 100;
-function generateRandomId() {
-    if(localStorage.getItem("UsersData")== null){
-        return 100;
-    }
-    else if(localStorage.getItem("UsersData")== '[]'){
-        return 100;
-    }
-    else{
-    let users = JSON.parse(storage.getItem("UsersData"));
-
-    var counter = JSON.parse(users[users.length - 1]).id;
-    counter++; // Generate random ID 
-
-    }
-    
-
-    return counter;
-}
-
-function generateAndSetId() {
-    var generatedId = generateRandomId(); // Generate a random ID
-    document.getElementById("id").value = generatedId; // Set the generated ID as the value of the input field
-  
-}
     
 function getUserIDs(){
 
