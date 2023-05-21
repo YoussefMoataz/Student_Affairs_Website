@@ -1,61 +1,87 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <title id = "t">Add User</title>
-        <link  rel = "icon" href = "images/logo.jpg"  type = "image/x-icon">
+        <link rel = "icon" href="{% static 'images/logo.jpg' %}" type = "image/x-icon">
         <meta name="author" content="Sara Walid">
 
-        <script src="scripts/jquery-3.6.3.min.js"></script>
-        <script src="scripts/script.js"></script>
-        <script src="scripts/user.js"></script>
+        <script src = "{% static 'scripts/jquery-3.6.3.min.js' %}"></script>
+        <script src = "{% static 'scripts/script.js' %}"></script>
+        <script src = "{% static 'scripts/user.js' %}"></script>
 
-        <script src="scripts/user_functions.js"></script>
+        <script src = "{% static 'scripts/user_functions.js' %}"></script>
 
-        <script>loadHeader("#headerDiv")</script>
 
-        <link rel="stylesheet" href="styles/style.css">
-        <link rel="stylesheet" href="styles/user_pages.css">
+        <link rel = "stylesheet" type = "text/css" href = "{% static 'styles/style.css' %}">
+        <link rel = "stylesheet" type = "text/css" href = "{% static 'styles/user_pages.css' %}">
     </head>
 
     <body>
         
-        <div id="headerDiv"></div>
+        {% include "header.html" %}
 
         <div class="info">
             <span class="icon"><i class="fa-regular fa-circle-user fa-2xl"></i></span> <br>
 
-            <form>
+            <form id = "addProfileForm" method="POST" action="" onsubmit="getData()">
+                {% csrf_token %}
                 <label for="userName">Name  </label> <br>
-                <input type="text" id="userName" onkeyup="requiredInput()" >
-                <br>
-            </form>
-
-            <div>
+                <input type="text" id="userName" name="userName" onkeyup="requiredInput()" >
+                <br> 
+                <div>
                 <label for="id">ID  </label>  <br>
-                <input type="text" id="id" readonly required>
+                <input type="text" id="userId" name="userId" readonly required>
                 <br>
                 <label for="password">Password  </label>  <br>
-                <input type="text" id="password" readonly required>
-            </div> 
+                <input type="text" id="userPassword" name= "userPassword" readonly required>
+                </div> 
             <button type="submit" id="addButton">Add</button>
+            </form>
         </div>
-        
+
+
         <script> 
         
-        
-        generateAndSetId();
+        function generateStudentID(last){
+
+        if(last == 0){
+            document.getElementById("userId").value = 100;
+        }else{
+            document.getElementById("userId").value =  parseInt(last) + 100;
+        }
+
+        }
+
+        if("{{ lastID }}"){
+        generateStudentID("{{ lastID }}");
+        }
+
         generateAndSetPassword();
-      
+
+        function generateRandomPassword(length) {
+            var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*()"; // List of characters to include in the password
+            var password = "";
+            
+            for (var i = 0; i < length; i++) {
+                var randomIndex = Math.floor(Math.random() * characters.length); // Generate random index to pick a character
+                password += characters[randomIndex]; // Append the randomly picked character to the password
+            } return password;
+        }
+
+        function generateAndSetPassword() {
+            var generatedPassword = generateRandomPassword(8); // Generate a random password with length 8
+            document.getElementById("userPassword").value = generatedPassword; // Set the generated password as the value of the input field
+        }
+
+            
         function requiredInput() {
 	        if(document.getElementById("userName").value != "") { 
                 document.getElementById("addButton").addEventListener("click", store);
                 document.getElementById("addButton").addEventListener("click", redirect);
             }
         }
-        
-
-        
-        
+         
         </script>
 
 
