@@ -150,3 +150,7 @@ def all_students(request):
     students = Student.objects.all()
     
     return render(request,'app/all_students.html',{"students":students})
+
+
+def home(request):
+    return render(request,'app/home.html')

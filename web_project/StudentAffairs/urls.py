@@ -10,5 +10,6 @@ urlpatterns = [
     path("app/all_students/profile/delete/<int:st_id>", views.delete_profile, name="DeleteProfile"),
     path("app/all_students/profile/department/<int:st_id>", views.department_assign, name="DepartmentAssign"),
     path("app/all_students/", views.all_students , name="AllStudents"),
+    path("app/home/", views.home, name="home"),
 
 ]
