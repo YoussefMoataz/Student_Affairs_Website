@@ -4,7 +4,7 @@ function getData(){
     var password = document.getElementById('userPassword').value;
 
 
-    if(name = " "){
+    if(name == ""){
         alert("You entered an empty name!!");
         return false;
     }

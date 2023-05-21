@@ -45,13 +45,10 @@
         
         function generateStudentID(last){
 
-        let date = new Date();
-        let currentYear = date.getFullYear();
-
         if(last == 0){
-            document.getElementById("userId").value = currentYear.toString() + "0001";
+            document.getElementById("userId").value = 100;
         }else{
-            document.getElementById("userId").value = parseInt(currentYear.toString() + "0000") + parseInt(last) + 1;
+            document.getElementById("userId").value =  parseInt(last) + 100;
         }
 
         }
