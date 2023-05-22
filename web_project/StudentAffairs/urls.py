@@ -11,10 +11,13 @@ urlpatterns = [
     path("app/all_students/profile/department/update/<int:st_id>", views.department_assign, name="DepartmentAssign"),
     path("app/all_students/", views.all_students , name="AllStudents"),
     path('app/add_user/', views.add_user, name='AddUser'),
+    path('app/view_user/', views.view_all_users, name='AllUsers'),
     path('app/view_user/', views.view_user, name='ViewUser'),
+
     path("app/home/", views.home, name="Home"),
     path("login/", views.login, name="Login"),
     path("app/all_students/profile/department/<int:st_id>", views.show_department, name = "ShowDepartment"),
-
+    path('app/view_user/update/', views.update_user, name="UpdateUser"),
+    path("app/view_user/delete/<int:selected_user>/", views.delete_user, name="DeleteUser"),
 
 ]

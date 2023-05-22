@@ -198,13 +198,30 @@ def view_user(request):
 
     return render(request, 'view_user.html', {'users': users, 'selected_user': selected_user})
 
+def view_all_users(request):
+    users = User.objects.all()
+    selected_user = None
 
-def update_user(request, selected_user_id):
-    user = User.objects.filter(userId=selected_user_id)
+    if request.method == 'POST':
+        user_id = request.POST.get('userId')
+        if user_id:  # Check if a user ID is selected
+            try:
+                selected_user = User.objects.get(userId=user_id)
+            except User.DoesNotExist:
+                pass
 
+    return render(request, 'view_user.html', {'users': users, 'selected_user': selected_user})
+
+
+
+
+def update_user(request):
+    form = UserForm(request.POST)
+    print(form)
     if request.method == "POST":
+        user = User.objects.filter(userId = request.POST['userId'])
 
-        if StudentForm(request.POST).is_valid():
+        if UserForm(request.POST).is_valid():
 
             user.update(userName = request.POST['userName'])
             user.update(userPassword = request.POST['userPassword'])
@@ -216,9 +233,10 @@ def update_user(request, selected_user_id):
 
 
 def delete_user(request, selected_user):
-    
-    Student.objects.get( userId = deletedId).delete()
-    return render(request, 'home.html', {'message': 'User deleted successfully'})
+
+    User.objects.get(userId = selected_user).delete()
+    return render(request, 'app/home.html', {'message': 'User deleted successfully'})
+
 
 def home(request):
     return render(request,'app/home.html')
