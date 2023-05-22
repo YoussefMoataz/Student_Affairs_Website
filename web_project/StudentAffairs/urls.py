@@ -12,5 +12,7 @@ urlpatterns = [
     path("app/all_students/", views.all_students , name="AllStudents"),
     path('app/add_user/', views.add_user, name='AddUser'),
     path('app/view_user/', views.view_user, name='ViewUser'),
+    path('app/view_user/update/<int:selected_user>/', views.update_user, name="UpdateUser"),
+    path("app/view_user/delete/<int:selected_user>/", views.delete_user, name="DeleteUser")
 
 ]
