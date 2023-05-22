@@ -26,11 +26,9 @@
             <span class="icon"><i class="fa-solid fa-user-pen fa-2xl"></i></span> <br>
             <br>
            
-            <form id="updateUserForm" method="POST" action="{% url 'UpdateUser' %}">
-                    {% csrf_token %}
-            <!-- <div class="selection">
+            <div class="selection">
                     <label for="id">Select ID</label>
-                    <select id="userId" name="userId" onchange="selectedIdChanged()">
+                    <select id="selectUserId" name="userId" onchange="selectedIdChanged()">
                         <option value=""></option>
                         {% for user in users %}
                             <option value="{{ user.userId }}" {% if selected_user and selected_user.userId == user.userId %}selected{% endif %}>
@@ -39,17 +37,20 @@
                         {% endfor %}
                     </select>
                     <br>
-            </div> -->
+            </div>
+
+            <form id="updateUserForm" method="POST" action="{% url 'UpdateUser' %}">
+                {% csrf_token %}
             
             <div class="data">
-                <label for="name">ID</label><br>
-                <input type="text" id="userId" name="userId" onkeyup="requiredInput()" value="{{ selected_user.userName }}" >
+                <label for="name" style="display: none;">ID</label><br>
+                <input type="text" id="userId" name="userId" onkeyup="requiredInput()" value="{{ selected_user.userName }}" style="display: none;" readonly>
                 <br>
                 <label for="name">Name</label><br>
                 <input type="text" id="userName" name="userName" onkeyup="requiredInput()" value="{{ selected_user.userName }}" >
                 <br>
                 <label for="password">Password</label><br>
-                <input type="password" id="userPassword" name="userPassword" onkeyup="requiredInput()" value="{{ selected_user.userPassword }}" >
+                <input type="password" id="userPassword" name="userPassword" onkeyup="requiredInput()" value="{{ selected_user.userPassword }}" readonly>
                 <br>
                 <button type="button" id="generateButton">Generate</button>
                 <input id="showPass" type="checkbox" onclick="togglePasswordVisibility()"> <label for="showPass">Show Password</label>
@@ -63,7 +64,7 @@
                 <script>
 
                     function selectedIdChanged(){
-                        alert(document.getElementById("userId").value)
+                        document.getElementById("userId").value = document.getElementById("selectUserId").value;
                     }
 
                     document.getElementById("deleteButton").addEventListener("click", function(){ 

@@ -185,7 +185,9 @@ def add_user(request):
 
 
 def view_user(request):
-    return render(request, 'view_user.html')
+    users = User.objects.all()
+
+    return render(request, 'view_user.html', {'users': users})
 
 
 def edit_user(request):
