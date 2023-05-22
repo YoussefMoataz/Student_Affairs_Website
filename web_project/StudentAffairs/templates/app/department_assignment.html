@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -5,15 +6,15 @@
   <title id="t">Department Assignment</title>
   <meta name="author" content="Nourhan Mahmoud" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="images/logo.jpg" type="image/x-icon">
+  <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/x-icon">
   
-  <script src="scripts/jquery-3.6.3.min.js"></script>
-  <script src="scripts/script.js"></script>
-  <script src="scripts/student.js"></script>
-  <script src="scripts/department.js"></script>
+  <script src="{% static 'scripts/jquery-3.6.3.min.js' %}"></script>
+  <script src="{% static 'scripts/script.js' %}"></script>
+  <script src="{% static 'scripts/student.js' %}"></script>
+  <script src="{% static 'scripts/department.js' %}"></script>
 
-  <link rel="stylesheet" href="styles/style.css" />
-  <link rel="stylesheet" href="styles/department.css" />
+  <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'styles/department.css' %}">
 
 </head>
 
@@ -23,8 +24,8 @@
       <div class="allForm">
 
         <h1>Department Assignment</h1>
-        <form>
-
+        <form method="POST" action="{% url 'DepartmentAssign' st_id %}"> 
+          {% csrf_token %}
           <div class="formContent">
             <div>
               <table class="centerTB">
@@ -33,17 +34,17 @@
                   <th>Student Name</th>
                   <th>Current Department</th>
                 </tr>
+                {% if not stud %}
                 <tr>
-                  <div>
-                    <td id="SID"></td>
-                  </div>
-                  <div >
-                    <td id="SName"></td>
-                  </div>
-                  <div >
-                    <td id="SDepartment"></td>
-                  </div>
+                  <td colspan="3">No student data available.</td>
                 </tr>
+                {% else %}
+                <tr>
+                  <td id="SID">{{ stud.studentID }}</td>
+                  <td id="SName">{{ stud.studentName }}</td>
+                  <td id="SDepartment">{{ stud.studentDepartment }}</td>
+                </tr>
+                {% endif %}
               </table>
             </div>
             <br /><br />
@@ -51,18 +52,18 @@
             <div>
               <label for="Department">Department: </label>
               <br /><br />
-              <select name="Department">
+              <select name="studentDepartment">
 
                 <option value="" disabled selected>Select a department</option>
-                <option value="1">Computer Science</option>
-                <option value="2">Information System</option>
-                <option value="3">Artificial Intelligence</option>
-                <option value="4">Information Technology</option>
-                <option value="5">Operations Research and Decision Support</option>
-                <option value="6">Software Engineering</option>
-                <option value="7">Networks and Cybersecurity</option>
-                <option value="8">Data Science</option>
-                <option value="9">Computing and Bioinformatics</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Information System">Information System</option>
+                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Operations Research and Decision Support">Operations Research and Decision Support</option>
+                <option value="Software Engineering">Software Engineering</option>
+                <option value="Networks and Cybersecurity">Networks and Cybersecurity</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Computing and Bioinformatics">Computing and Bioinformatics</option>
 
               </select>
               <br />
@@ -70,7 +71,7 @@
               <div>
                 
                 <button type="button" id="CancelButton">Cancel</button>
-                <button type="button" id="SubmitButton">Submit</button>
+                <button type="submit" id="SubmitButton">Submit</button>
                 
               </div>
 
@@ -80,9 +81,21 @@
       </div>
     </div>
     
+
+    <script>
+      $(document).ready(function() {
+
+        $('#CancelButton').click(function() {
+          // Redirect to the show_profile page with same ID
+          window.location.href = '{% url "ShowProfile" st_id=st_id %}';
+        });
+
+      });
+    </script>
+
 </body>
 
-<script>
+<!-- <script>
 
   assignDepartment();
 
@@ -90,6 +103,6 @@
 
   document.getElementById("CancelButton").addEventListener("click", Cancel);
 
-</script>
+</script> -->
 
 </html>

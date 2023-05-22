@@ -119,39 +119,42 @@ def delete_profile(request, st_id):
     return redirect(all_students)
 
 
-def department_assign(request, st_id):
+def show_department(request, st_id):
     
-    student = Student.objects.filter(studentID=st_id)
+    student = Student.objects.get(studentID=st_id)
+    context = {
+        'stud': student,
+        'st_id': st_id,
+    }
+
+    return render(request, 'app/department_assignment.html', context)
+
+
+def department_assign(request, st_id):
+
+    student = Student.objects.get(studentID=st_id)
 
     if request.method == "POST":
+        department = request.POST.get('studentDepartment')
+        student.studentDepartment = department
+        student.save()
+        return redirect(all_students)
+        # return redirect('ShowProfile', st_id=st_id)
 
-        if StudentForm(request.POST).is_valid():
+    context = {
+        'stud': student,
+        'st_id': st_id,
+    }
 
-            student.update(studentName=request.POST['studentName'])
-            student.update(studentBirthDate=request.POST['studentBirthDate'])
-            student.update(studentGPA=request.POST['studentGPA'])
-            student.update(studentLevel=request.POST['studentLevel'])
-            student.update(studentDepartment=request.POST.get('studentDepartment', ""))
-            student.update(studentEmail=request.POST['studentEmail'])
-            student.update(studentPhone=request.POST['studentPhone'])
-            student.update(studentGender=request.POST['studentGender'])
-            student.update(studentStatus=request.POST.get('studentStatus', "0"))
+    return render(request, 'app/department_assignment.html', context)
 
 
-            return render(request,'app/department_assignment.html')
-        
-        ctx = {"submittedForm" : StudentForm(request.POST)}
-        return render(request,'app/show_profile.html', context=ctx)
-    
-    return render(request,'app/show_profile.html')
 
 
 def all_students(request):
     students = Student.objects.all()
     
     return render(request,'app/all_students.html',{"students":students})
-
-
 
 def add_user(request):
     form = UserForm()
@@ -214,5 +217,12 @@ def update_user(request, selected_user_id):
 
 def delete_user(request, selected_user):
     
-    User.objects.get(userId = selected_user).delete()
-    return render(request, 'app/home.html', {'message': 'User deleted successfully'})
+    Student.objects.get( userId = deletedId).delete()
+    return render(request, 'home.html', {'message': 'User deleted successfully'})
+
+def home(request):
+    return render(request,'app/home.html')
+
+def login(request):
+
+    return render(request, 'app/login.html')

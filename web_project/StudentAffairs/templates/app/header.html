@@ -1,7 +1,8 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-   <link rel="stylesheet" href="styles/header.css">
-   <link rel="stylesheet" href="styles/all.css">
+   <link rel="stylesheet" href="{% static 'styles/header.css' %}">
+   <link rel="stylesheet" href="{% static 'styles/all.css' %}">
 
 
     <body>
@@ -18,27 +19,27 @@
                             <span class="menu"> Menu</span>
                         </div>
                     </li>
-                    <li><a id="home" href = "home.html" >
+                    <li><a id="home" href = "{% url 'Home' %}" >
                         <span class="icon"><i class="fas fa-home"></i></span>
                         <span class item> Home</span>
                     </a></li> 
-                    <li><a id="add_user" href ="add_user.html" >
+                    <li><a id="add_user" href ="{% url 'AddUser' %}" >
                         <span class="icon"><i class="fas fa-user-plus"></i></span>
                         <span class item>Add User</span>
 
                     </a></li> 
-                    <li> <a id="view_user" href="view_user.html">
+                    <li> <a id="view_user" href="{% url 'ViewUser' %}">
                         <span class="icon"><i class="fas fa-user-pen"></i></span>
                         <span class item> Edit User</span>
 
                         
                     </a></li>
-                    <li id="profilePage"> <a href="show_profile.html">
+                    <li id="profilePage"> <a href="{% url 'AddProfile' %}">
                         <span class="icon"><i class="fas fa-user-plus"></i></span>
                         <span class item> Add Student</span>
 
                     </a></li>
-                    <li><a id="all_students" href="all_students.html">
+                    <li><a id="all_students" href="{% url 'AllStudents' %}">
                         <span class="icon"><i class="fas fa-clipboard"></i></span>
 
                         <span class item> View All Students</span>
@@ -68,7 +69,7 @@
             </div>
        </div>
 
-        <script src="scripts/header.js"></script>
+        <script src="{% static 'scripts/header.js' %}"></script>
 
     </body>
     

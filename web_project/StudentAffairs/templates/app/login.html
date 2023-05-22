@@ -1,22 +1,24 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <title id="t">Login</title>
         <meta name="author" content="Mohamed Maged">
-        <link rel="stylesheet" href="styles/style.css">
-        <link rel="stylesheet" href="styles/login.css">
-        <link rel="icon" href="images/logo.jpg" type="image/icon-x">
-        <script src="/scripts/font_awesome_icons_kit.js"></script>
-        <script src="scripts/jquery-3.6.3.min.js"></script>
-        <script src="scripts/script.js"></script>
-        <script src="scripts/user.js"></script>
+        <link rel="stylesheet" href={% static "styles/style.css"%}>
+        <link rel="stylesheet" href={% static "styles/login.css"%}>
+        <link rel="icon" href={% static "images/logo.jpg"%} type="image/icon-x">
+        
+        <script src={% static "/scripts/font_awesome_icons_kit.js"%}></script>
+        <script src={% static "scripts/jquery-3.6.3.min.js"%}></script>
+        <script src={% static "scripts/script.js"%}></script>
+        <script src={% static "scripts/user.js"%}></script>
     </head>
     <body>
        <div class="container">
            <div class="login-form">
                <!-- <p class="login-text">Log in</p> -->
                <div class="logo">
-                   <img src="images/logo.jpg" alt="Student Affairs Logo">
+                   <img src={% static "images/logo.jpg"%} alt="Student Affairs Logo">
                </div>
                <p id="error-message" class="error"></p>
                <form id="loginForm" autocomplete="off">
@@ -42,6 +44,6 @@
                </form>
            </div>
        </div>
-        <script src="scripts/login.js"></script>
+        <script src={% static "scripts/login.js"%}></script>
     </body>
 </html>

@@ -117,7 +117,7 @@
 
                 <div>
                     <label for="studentDepartment">Student Department</label> 
-                    <input type="submit" id="studentDepartment" name="studentDepartment" value="{{ stud.studentDepartment }}" formaction="{% url 'DepartmentAssign' stud.studentID %}" disabled/>
+                    <input type="submit" id="studentDepartment" name="studentDepartment" value="{{ stud.studentDepartment }}" formaction="{% url 'ShowDepartment' stud.studentID %}" disabled/>
                 </div>
 
                 <div>
