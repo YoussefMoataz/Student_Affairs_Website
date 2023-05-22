@@ -186,7 +186,6 @@ def add_user(request):
 
 def view_user(request):
     users = User.objects.all()
-
     return render(request, 'view_user.html', {'users': users})
 
 
@@ -195,7 +194,6 @@ def edit_user(request):
     if request.method == "POST":
         user = User.objects.filter(userId = request.POST['userId'])
         userForm = UserForm(request.POST)
-        print(userForm)
         if userForm.is_valid():
 
             user.update(userName = request.POST['userName'])
