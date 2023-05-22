@@ -12,20 +12,29 @@ function getData(){
     return true;
 }
 
+function togglePasswordVisibility() {
+    var passwordField = document.getElementById("userPassword");
+    var toggleButton = document.getElementById("showPass");
 
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        toggleButton.textContent = "Hide Password";
+    } else {
+        passwordField.type = "password";
+        toggleButton.textContent = "Show Password";
+    }
+}
 
 // function to show password
 
 function myFunction() {
     var x = document.getElementById("userPassword");
-        if (x.type === "userPassword") {
-            x.type = "text"; 
-        } 
-        else {
-            x.type = "userPassword"; 
-        }
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
     }
-
+}
 
 // local storage functions 
 

@@ -185,44 +185,33 @@ def add_user(request):
 
 
 def view_user(request):
-    if request.method == 'POST':
-        user_id = request.POST['userId']
-        user = User.objects.get(pk=user_id)
-        form = UserForm(request.POST, instance=user)
-        if form.is_valid():
-            form.save()
-            return render(request, 'home.html', {'message': 'User updated successfully'})
-    else:
-        form = UserForm()
-
-    return render(request, 'view_user.html', {'form': form})
+    return render(request, 'view_user.html')
 
 
-def edit_user(request, selectedId):
-    user = User.objects.filter(userId = selectedId)
-
+def edit_user(request):
+    
     if request.method == "POST":
-
-        if UserForm(request.POST).is_valid():
+        user = User.objects.filter(userId = request.POST['userId'])
+        userForm = UserForm(request.POST)
+        print(userForm)
+        if userForm.is_valid():
 
             user.update(userName = request.POST['userName'])
-            user.update(userId = request.POST['userId'])
-            user.update(password = request.POST['userPassword'])
-            
-            return redirect(all_students)
-        ctx = {"editUserForm" : UserForm(request.POST)}
-        return render(request,'app/show_profile.html', context=ctx)
-    return render(request,'app/show_profile.html')
+            user.update(userPassword = request.POST['userPassword'])
+
+            return redirect(home)
+        return redirect(home)
+    return render(request,'app/view_user.html')
 
 
 def delete_user(request, deletedId):
-    
-    Student.objects.get( userId = deletedId).delete()
-    return render(request, 'home.html', {'message': 'User deleted successfully'})
+    User.objects.get(userId = deletedId).delete()
+    return redirect(home)
+
 
 def home(request):
     return render(request,'app/home.html')
 
-def login(request):
 
+def login(request):
     return render(request, 'app/login.html')
