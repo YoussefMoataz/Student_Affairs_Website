@@ -7,16 +7,14 @@
         <script src="{% static 'scripts/jquery-3.6.3.min.js' %}"></script>
         <script src="{% static 'scripts/script.js' %}"></script>
         <script src="{% static 'scripts/viewAll.js' %}"></script>
-        <link  rel = "icon" href = "images/logo.jpg"  type = "image/x-icon">
-        <script>
-            loadHeader("#headerDiv");
-        </script>
+        <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/x-icon">
         <link rel="stylesheet" href="{% static 'styles/style.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'styles/viewAll.css' %}">
         
         
     </head>
     <body>
+        {% include "header.html" %}
         <div id="headerDiv"></div>
         
         <div class="head">
