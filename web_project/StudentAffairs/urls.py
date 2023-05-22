@@ -13,6 +13,6 @@ urlpatterns = [
     path('app/add_user/', views.add_user, name='AddUser'),
     path('app/view_user/', views.view_user, name='ViewUser'),
     path("app/home/", views.home, name="Home"),
-
+    path("login/", views.login, name="Login"),
 
 ]
