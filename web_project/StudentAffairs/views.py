@@ -210,7 +210,25 @@ def delete_user(request, deletedId):
 
 
 def home(request):
-    return render(request,'app/home.html')
+    students = Student.objects.all()
+    Reports = {}
+    
+    Reports['num_of_students_in_level_1']           =  len(list(filter(lambda x: x.studentLevel == '1' , students)))
+    Reports['num_of_students_in_level_2']           =  len(list(filter(lambda x: x.studentLevel == '2' , students)))
+    Reports['num_of_students_in_level_3']           =  len(list(filter(lambda x: x.studentLevel == '3' , students)))
+    Reports['num_of_students_in_level_4']           =  len(list(filter(lambda x: x.studentLevel == '4', students)))
+    Reports['num_of_Active_students_in_level_1']    =  len(list(filter(lambda x: x.studentLevel == '1' and x.studentStatus == '1' , students)))
+    Reports['num_of_Inactive_students_in_level_1']  =  len(list(filter(lambda x: x.studentLevel == '1' and x.studentStatus == '0' , students)))
+    Reports['num_of_Active_students_in_level_2']    =  len(list(filter(lambda x: x.studentLevel == '2' and x.studentStatus == '1' , students)))
+    Reports['num_of_Inactive_students_in_level_2']  =  len(list(filter(lambda x: x.studentLevel == '2' and x.studentStatus == '0' , students)))
+    Reports['num_of_Active_students_in_level_3']    =  len(list(filter(lambda x: x.studentLevel == '3' and x.studentStatus == '1' , students)))
+    Reports['num_of_Inactive_students_in_level_3']  =  len(list(filter(lambda x: x.studentLevel == '3' and x.studentStatus == '0' , students)))
+    Reports['num_of_Active_students_in_level_4']    =  len(list(filter(lambda x: x.studentLevel == '4' and x.studentStatus == '1', students)))
+    Reports['num_of_Inactive_students_in_level_4']  =  len(list(filter(lambda x: x.studentLevel == '4' and x.studentStatus == '0', students)))
+
+
+
+    return render(request,'app/home.html' , {"Reports":Reports})
 
 
 def login(request):
