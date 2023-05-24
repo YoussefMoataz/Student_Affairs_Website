@@ -200,7 +200,7 @@ def add_user(request):
         
         if form.is_valid():
             form.save()
-            return render(request, 'home.html', {'message': 'User added successfully'})
+            return redirect(home)
         ctx["addUserForm"] = form
         return render(request, 'app/add_user.html', context=ctx)
     
