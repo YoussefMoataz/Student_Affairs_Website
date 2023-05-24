@@ -122,6 +122,12 @@ def delete_profile(request, st_id):
 def show_department(request, st_id):
     
     student = Student.objects.get(studentID=st_id)
+
+    # Check if the student level is not equal to 3
+    if student.studentLevel != '3':
+        # Redirect to all_students page 
+        return redirect(all_students)
+
     context = {
         'stud': student,
         'st_id': st_id,
