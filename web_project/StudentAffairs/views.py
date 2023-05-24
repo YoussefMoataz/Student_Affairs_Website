@@ -192,6 +192,15 @@ def add_user(request):
 
 def view_user(request):
     users = User.objects.all()
+
+    userId = request.GET.get('user_id', 0)
+
+    print(userId)
+
+    if userId != 0:
+        user = User.objects.get(userId = userId)
+        return render(request, 'view_user.html', {'users': users, 'selected_user': user})
+    
     return render(request, 'view_user.html', {'users': users})
 
 

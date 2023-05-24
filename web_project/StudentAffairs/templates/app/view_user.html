@@ -31,7 +31,7 @@
                     <select id="selectUserId" name="userId" onchange="selectedIdChanged()">
                         <option value=""></option>
                         {% for user in users %}
-                            <option value="{{ user.userId }}" {% if selected_user and selected_user.userId == user.userId %}selected{% endif %}>
+                            <option value="{{ user.userId }}">
                                 {{ user.userId }}
                             </option>
                         {% endfor %}
@@ -44,7 +44,7 @@
             
             <div class="data">
                 <label for="name" style="display: none;">ID</label><br>
-                <input type="text" id="userId" name="userId" onkeyup="requiredInput()" value="{{ selected_user.userName }}" style="display: none;" readonly>
+                <input type="text" id="userId" name="userId" onkeyup="requiredInput()" value="{{ selected_user.userId }}" style="display: none;" readonly>
                 <br>
                 <label for="name">Name</label><br>
                 <input type="text" id="userName" name="userName" onkeyup="requiredInput()" value="{{ selected_user.userName }}" >
@@ -65,6 +65,9 @@
 
                     function selectedIdChanged(){
                         document.getElementById("userId").value = document.getElementById("selectUserId").value;
+                        
+                        // pass selected id as URL parameter to load user data from django response
+                        document.location.href = "?user_id=" + document.getElementById("userId").value;
                     }
 
                     document.getElementById("deleteButton").addEventListener("click", function(){ 
