@@ -116,8 +116,9 @@
                 </div>
 
                 <div>
-                    <label for="studentDepartment">Student Department</label> 
-                    <input type="submit" id="studentDepartment" name="studentDepartment" value="{{ stud.studentDepartment }}" formaction="{% url 'ShowDepartment' stud.studentID %}" readonly/>
+                    <label for="studentDepartmentButton">Student Department</label> 
+                    <input type="submit" id="studentDepartmentButton" value="{{ stud.studentDepartment }}" formaction="{% url 'ShowDepartment' stud.studentID %}" disabled/>
+                    <input type="text" id="studentDepartment" name="studentDepartment" value="{{ stud.studentDepartment }}" style="display: none;" readonly/>
                 </div>
 
                 <div>
@@ -171,12 +172,13 @@
                     function checkLevelAndUpdateDepartment(){
 
                         if(document.getElementById("studentLevel").value == 3){
-                            document.getElementById("studentDepartment").readonly = false;
+                            document.getElementById("studentDepartmentButton").disabled = false;
                         }else{
-                            document.getElementById("studentDepartment").readonly = true;
+                            document.getElementById("studentDepartmentButton").disabled = true;
                         }
 
                         if(document.getElementById("studentLevel").value < 3){
+                            document.getElementById("studentDepartmentButton").value = "";
                             document.getElementById("studentDepartment").value = "";
                         }
 

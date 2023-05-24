@@ -86,7 +86,7 @@ button{
     margin: 6px;
     font-size: var(--default-font-size);
 }
-#studentDepartment{
+#studentDepartmentButton, #studentDepartment{
     text-align: start;
     background-color: var(--input-background-color);
     height: 36px;
