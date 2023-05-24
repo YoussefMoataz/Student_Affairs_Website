@@ -31,7 +31,7 @@
                     <select id="selectUserId" name="userId" onchange="selectedIdChanged()">
                         <option value=""></option>
                         {% for user in users %}
-                            <option value="{{ user.userId }}">
+                            <option value="{{ user.userId }}" {% if selected_user.userId == user.userId %} selected {% endif %}>
                                 {{ user.userId }}
                             </option>
                         {% endfor %}
@@ -70,12 +70,26 @@
                         document.location.href = "?user_id=" + document.getElementById("userId").value;
                     }
 
+                    function activateDeleteButton(){
+
+                        if(document.getElementById("userId").value.length == 0){
+                            document.getElementById("deleteButton").disabled = true;
+                        }else{
+                            document.getElementById("deleteButton").disabled = false;
+                        }
+
+                    }
+
                     document.getElementById("deleteButton").addEventListener("click", function(){ 
                                 
                         if(confirm("Are you sure you want to delete this user ?")){
                             location.href = "delete/" + document.getElementById("userId").value;
                         }   
                     });
+
+                    activateDeleteButton();
+
+                    document.getElementById("userName").addEventListener("keyup", activateDeleteButton);
                             
                     // document.getElementById("saveButton").addEventListener("click", function(){ 
 
