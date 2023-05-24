@@ -85,6 +85,27 @@
     <script>
       $(document).ready(function() {
 
+        $('#departmentForm').submit(function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally which would cause the page to reload. Instead, asynchronously
+      
+        // Get the form data
+        var formData = $(this).serialize();
+
+        // Send an AJAX request
+        $.ajax({
+          url: '{% url "DepartmentAssign" st_id=st_id %}',
+          type: $(this).attr('POST'),
+          data: formData,
+          success: function(response) {
+            window.location.href= '{% url "AllStudents" %}';
+          },
+          error: function(xhr, status, error) {
+            // Handle the error response
+            console.log(xhr.responseText);
+          }
+        });
+        });
+
         $('#CancelButton').click(function() {
           // Redirect to the show_profile page with same ID
           window.location.href = '{% url "ShowProfile" st_id=st_id %}';
