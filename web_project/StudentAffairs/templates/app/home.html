@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="{% static 'styles/home.css' %}">
     <title id="t">Home</title>
     <link  rel = "icon" href = 
     "{% static 'images/logo.jpg '%}"  type = "image/x-icon">
@@ -22,6 +23,47 @@
             <h5 style="text-align: center;font-size: 40px; display: inline-block;">Students Affairs</h5>    
         </div>
     </div>
+
+     
+    <div class="Reports">
+        <div class="allForm">
+  
+          <h1 style="margin-bottom:40px  ;">Students Reports</h1>
+              <div>
+                <table class="centerTB">
+                  <tr>
+                    <th>Level</th>
+                    <th>Number of Students</th>
+                    <th>Status of Students</th>
+                  </tr>
+                  <tr>
+                    <td rowspan="1">1</td>
+                    <td>{{ Reports.num_of_students_in_level_1}}</td>
+                    <td>{{ Reports.num_of_Active_students_in_level_1}} Active<br>{{ Reports.num_of_Inactive_students_in_level_1}} Inactive</td>
+                  </tr>
+                  <tr>
+                    <td rowspan="1">2</td>
+                    <td>{{Reports.num_of_students_in_level_2}}</td>
+                    <td>{{ Reports.num_of_Active_students_in_level_2}} Active<br>{{ Reports.num_of_Inactive_students_in_level_2}} Inactive</td>
+                  </tr>
+                  <tr>
+                    <td rowspan="1">3</td>
+                    <td>{{Reports.num_of_students_in_level_3}}</td>
+                    <td>{{ Reports.num_of_Active_students_in_level_3}} Active<br>{{ Reports.num_of_Inactive_students_in_level_3}} Inactive</td>
+                  </tr>
+                  <tr>
+                    <td rowspan="1">4</td>
+                    <td>{{Reports.num_of_students_in_level_4}}</td>
+                    <td>{{ Reports.num_of_Active_students_in_level_4}} Active<br>{{ Reports.num_of_Inactive_students_in_level_4}} Inactive</td>
+                  </tr>
+                  
+                </table>
+              </div>
+              <br /><br />
+                
+        </div>
+      </div>
+      
    
    
 
