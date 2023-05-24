@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from .forms import StudentForm, UserForm
 from .models import Student, User
 
+from django.db import IntegrityError
 
 def index(request):
     return render(request, "app/index.html")
@@ -137,15 +138,32 @@ def show_department(request, st_id):
 
 
 def department_assign(request, st_id):
-
     student = Student.objects.get(studentID=st_id)
 
     if request.method == "POST":
         department = request.POST.get('studentDepartment')
-        student.studentDepartment = department
-        student.save()
+        if not department:
+            error_message = "Please choose a department."
+            context = {
+                'stud': student,
+                'st_id': st_id,
+                'error_message': error_message,
+            }
+            return render(request, 'app/department_assignment.html', context)
+
+        try:
+            student.studentDepartment = department
+            student.save()
+        except IntegrityError:
+            error_message = "An error occurred while saving the department. Please try again."
+            context = {
+                'stud': student,
+                'st_id': st_id,
+                'error_message': error_message,
+            }
+            return render(request, 'app/department_assignment.html', context)
+
         return redirect(all_students)
-        # return redirect('ShowProfile', st_id=st_id)
 
     context = {
         'stud': student,
