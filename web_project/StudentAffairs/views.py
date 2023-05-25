@@ -265,3 +265,18 @@ def home(request):
 
 def login(request):
     return render(request, 'app/login.html')
+
+def validate(request):
+    username = request.POST['userName']
+    password = request.POST['password']
+    exists = User.objects.filter(userName__iexact=username).exists()
+    if(exists):
+        db_password = User.objects.get(userName=username).userPassword 
+        if(password == db_password):
+            print(True)
+            return HttpResponse('Valid')
+        else:
+            return HttpResponse('Invalid')
+    else:
+        return HttpResponse('Invalid')
+        

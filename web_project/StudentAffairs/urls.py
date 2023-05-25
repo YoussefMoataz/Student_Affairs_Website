@@ -17,4 +17,5 @@ urlpatterns = [
     path('app/view_user/delete/<int:deletedId>/', views.delete_user, name='DeleteUser'),
     path("app/home/", views.home, name="Home"),
     path("login/", views.login, name="Login"),
+    path("validate/", views.validate, name="Validate"),
 ]
