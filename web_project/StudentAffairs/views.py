@@ -269,12 +269,9 @@ def login(request):
 def validate(request):
     username = request.POST['userName']
     password = request.POST['password']
-    print(username)
-    print(password)
     exists = User.objects.filter(userName__iexact=username).exists()
     if(exists):
-        db_password = User.objects.get(userName=username).userPassword
-        print(db_password) 
+        db_password = User.objects.get(userName=username).userPassword 
         if(password == db_password):
             print(True)
             return HttpResponse('Valid')
