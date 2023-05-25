@@ -42,4 +42,11 @@ if(window.location.href.includes("all_students.html")){
 
 
 
+if (window.sessionStorage.getItem("isAdmin") !== "true") {
+    document.getElementById("add_user").style.display="none";
+    document.getElementById("view_user").style.display="none";
+}
+
+
+
 
