@@ -11,17 +11,16 @@
         <script src={% static "/scripts/font_awesome_icons_kit.js"%}></script>
         <script src={% static "scripts/jquery-3.6.3.min.js"%}></script>
         <script src={% static "scripts/script.js"%}></script>
-        <script src={% static "scripts/user.js"%}></script>
     </head>
     <body>
        <div class="container">
            <div class="login-form">
-               <!-- <p class="login-text">Log in</p> -->
                <div class="logo">
                    <img src={% static "images/logo.jpg"%} alt="Student Affairs Logo">
                </div>
                <p id="error-message" class="error"></p>
-               <form id="loginForm" autocomplete="off">
+               <form id="loginForm" autocomplete="off" method = "POST">
+                {% csrf_token %}
                    <div class="user-name">
                        <div class="icon" id="user-icon">
                            <i class="fa-solid fa-user" id="user-icon"></i>
@@ -38,12 +37,71 @@
                        <input type="password" name="password" id="password" placeholder="Password" required>    
                    </div>
                    <div> 
-                       <!-- <button class="submit-btn" onclick="validate_input()">Log in</button> -->
-                       <input type="button" id="submit-btn" class="submit-btn", onclick="validate_input()" value="Log in">
+                       <button class="submit-btn">Log in</button>
                    </div>
                </form>
            </div>
        </div>
-        <script src={% static "scripts/login.js"%}></script>
+       {% block javascript%}
+        <script>
+            let error_msg = "Wrong Credentials. Please Try Again.";
+            let form = document.getElementById("loginForm");
+            let show_pass_icon = "<i class=\"fa-solid fa-eye\">";
+            let hide_pass_icon = "<i class=\"fa-solid fa-eye-slash\"></i>";
+            let show_pass = false;
+           
+            function show_password()
+            {
+                if(show_pass)
+                {
+                    document.getElementById("show-pass-icon").innerHTML = hide_pass_icon;
+                    show_pass = false;
+                    document.getElementById("password").setAttribute("type", "password");
+                }
+                else
+                {
+                    document.getElementById("show-pass-icon").innerHTML = show_pass_icon;
+                    show_pass = true;
+                    document.getElementById("password").setAttribute("type", "text");
+                }
+            }
+
+            $("#loginForm").submit(function (e)
+            {
+                e.preventDefault();
+                var credentials = $(this).serialize();
+
+                $.ajax(
+                    {
+                        type: "POST",
+                        url: "{% url 'Validate'%}",
+                        data: credentials,
+
+                        success: function(response)
+                        {
+                            if(response == 'Valid')
+                            {
+                                window.location.href= '{% url 'Home' %}';
+                            }
+                            else
+                            {
+                                document.getElementById("error-message").innerHTML = error_msg;
+                                document.getElementById("userName").style.borderColor = "red";
+                                document.getElementById("user-icon").style.backgroundColor = "red";
+                                document.getElementById("password").style.borderColor = "red";
+                                document.getElementById("pass-icon").style.backgroundColor = "red";   
+                            }
+                        },
+                        error: function(response)
+                        {
+                            alert("Server Error, Please Try Again.");
+                        }
+                    }
+                )
+            }
+            )
+
+        </script>
+        {% endblock javascript%}
     </body>
 </html>
