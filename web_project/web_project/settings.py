@@ -57,7 +57,7 @@ ROOT_URLCONF = 'web_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'StudentAffairs/templates/app/')],
+        'DIRS': ['StudentAffairs/templates/app/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,7 +125,7 @@ STATICFILES_DIRS = (
     'StudentAffairs/static',
 )
 
-STATICFILES_DIRS=['StudentAffairs/static']
+STATICFILES_DIRS=[(os.path.join(BASE_DIR,'StudentAffairs/static'))]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
