@@ -8,19 +8,16 @@
     "{% static 'images/logo.jpg '%}"  type = "image/x-icon">
     <link rel="stylesheet" href="{% static 'styles/style.css' %}">
     <script src="{% static 'scripts/jquery-3.6.3.min.js' %}"></script>
-    <script src="{% static 'scripts/script.js' %}"></script>
-    <script>
-        loadHeader("#headerDiv");
-    </script>
+   
 </head>
 <body>
 
     {% include 'header.html' %}
-    <div style="display: grid; grid-template-columns: 100px 500px; column-gap: 30px; justify-content: center; margin-top: 70px;">
+    <div style="display: grid; grid-template-columns: 100px 400px; column-gap: 30px; justify-content: center; margin-top: 70px;">
             <img style="width: 140px ; border-radius: 70px; display: inline-block;" src="{% static 'images/logo.jpg' %}">
         <div style="margin-left: auto ; margin-right: auto;">
-            <h3 style="text-align: center;font-size: 40px; margin-bottom: 10px; margin-top: 10px;">Welcome to our website</h3><br>
-            <h5 style="text-align: center;font-size: 40px; display: inline-block;">Students Affairs</h5>    
+            <h3 style="text-align: center;font-size: 40px; margin-bottom: 10px; margin-top: 10px;">Welcome <span id="name"> Ahmed</span></h3><br>
+            <h5 style="text-align: center;font-size: 40px; display: inline-block;">Student Affairs</h5>    
         </div>
     </div>
 
@@ -28,7 +25,7 @@
     <div class="Reports">
         <div class="allForm">
   
-          <h1 style="margin-bottom:40px  ;">Students Reports</h1>
+          <h1 class="H">Students Report</h1>
               <div>
                 <table class="centerTB">
                   <tr>
@@ -63,6 +60,19 @@
                 
         </div>
       </div>
+      {% block javascript%}
+
+      <script>
+
+        
+        console.log(window.sessionStorage.getItem('username'));
+        document.getElementById("name").innerHTML = window.sessionStorage.getItem('username');
+
+      </script>
+
+
+      {% endblock javascript%} 
+
       
    
    
