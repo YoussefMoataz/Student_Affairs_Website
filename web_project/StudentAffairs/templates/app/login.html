@@ -45,11 +45,15 @@
        {% block javascript%}
         <script>
             let error_msg = "Wrong Credentials. Please Try Again.";
-            let form = document.getElementById("loginForm");
             let show_pass_icon = "<i class=\"fa-solid fa-eye\">";
             let hide_pass_icon = "<i class=\"fa-solid fa-eye-slash\"></i>";
             let show_pass = false;
-           
+            let storage = window.sessionStorage;
+            let username = document.getElementById("userName");
+            let password = document.getElementById("password");
+            storage.setItem("isAdmin", "false");
+            storage.setItem("username", "null");
+            
             function show_password()
             {
                 if(show_pass)
@@ -70,6 +74,12 @@
             {
                 e.preventDefault();
                 var credentials = $(this).serialize();
+                if(username.value == "admin" && password.value == "admin")
+                {
+                    storage.setItem("isAdmin", "true");
+                    storage.setItem("username", "Admin");
+                    window.location.href= '{% url 'Home' %}';
+                }      
 
                 $.ajax(
                     {
@@ -81,6 +91,7 @@
                         {
                             if(response == 'Valid')
                             {
+                                storage.setItem("username", username.value);
                                 window.location.href= '{% url 'Home' %}';
                             }
                             else
