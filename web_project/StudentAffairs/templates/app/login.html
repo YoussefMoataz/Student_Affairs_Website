@@ -79,6 +79,7 @@
                     storage.setItem("isAdmin", "true");
                     storage.setItem("username", "Admin");
                     window.location.href= '{% url 'Home' %}';
+                    return;
                 }      
 
                 $.ajax(
