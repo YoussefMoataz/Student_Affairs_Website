@@ -20,22 +20,41 @@ Features :
 Directory Structure :
 --------------------------------------------
 Student_Affairs_Website/
+
 ├── StudentAffairs/
+
 │   ├── migrations/
+
 │   ├── static/
+
 │   ├── templates/
+
 │   ├── __init__.py
+
 │   ├── admin.py
+
 │   ├── forms.py
+
 │   ├── models.py
+
 │   ├── urls.py
+
 │   └── views.py
+
 ├── web_project/
+
 │   ├── settings.py
+
 │   ├── urls.py
+
 │   ├── wsgi.py
+
 │   └── asgi.py
+
 ├── static/
+
 ├── templates/
+
 ├── manage.py
+
 └── README.md
