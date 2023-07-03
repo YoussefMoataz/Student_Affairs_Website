@@ -19,4 +19,5 @@ Features :
 
 Directory Structure :
 --------------------------------------------
-<img width="131" alt="image" src="https://github.com/sarawalid99/Student_Affairs_Website/assets/92929722/24e97b66-3ade-4b6f-9fc5-ff21c48dc23e">
+<img width="127" alt="image" src="https://github.com/YoussefMoataz/Student_Affairs_Website/assets/92929722/2f4b803f-a2b3-49af-9385-bff0a98e9609">
+
