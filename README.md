@@ -6,7 +6,7 @@ Description :
 --------------------------------------------
 This project is a web application developed using Django, a high-level Python web framework. 
 
-The application allows users to manage student profiles and perform various operations such as adding, updating, and deleting student information. Additionally, users can view statistics and generate reports based on student data.
+The application allows users to manage student profiles and perform various operations such as adding, updating, and deleting student information. Additionally, users can view statistics and generate reports based on students data.
 
 Features :
 --------------------------------------------
