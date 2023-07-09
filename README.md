@@ -26,15 +26,15 @@ To run this project locally, follow these steps:
 3. Create a virtual environment for the project:
     - Open a terminal or command prompt.
     - Navigate to the project directory.
-    - Run the command python -m venv venv to create a new virtual environment.
+    - Run the command `python -m venv venv` to create a new virtual environment.
 4. Activate the virtual environment:
-    - On Windows: venv\Scripts\activate
-    - On macOS and Linux: source venv/bin/activate
-5. Install the project dependencies by running the command pip install -r requirements.txt.
+    - On Windows: `venv\Scripts\activate`
+    - On macOS and Linux: `source venv/bin/activate`
+5. Install the project dependencies by running the command `pip install -r requirements.txt`.
 6. Run the database migrations:
-    - Run the command python manage.py makemigrations to create the migration files.
-    - Run the command python manage.py migrate to apply the migrations to the database.
-7. Start the development server by running the command python manage.py runserver.
+    - Run the command `python manage.py makemigrations` to create the migration files.
+    - Run the command `python manage.py migrate` to apply the migrations to the database.
+7. Start the development server by running the command `python manage.py runserver`.
 8. Open your web browser and visit http://localhost:8000 to access the application.
 
 Usage :
